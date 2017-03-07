@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html style="font-size: 32px;">
+<head>
+	<title></title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
+	<script>
+		 document.getElementsByTagName('html')[0].style.fontSize = document.documentElement.clientWidth/ 10+'px';
+		 document.addEventListener('touchmove',function(e){e.preventDefault();},false)
+	</script>
+</head>
+<body>
+		<div id="fly-main-ui">
+			
+		</div>
+
+			<script>
+				
+				function onError(){
+
+						var script = '<script src="./assets/js/index.js"><\/script> ';
+						var s = document.createElement('script');
+						s.src='./assets/js/index.js';
+						document.body.appendChild(s);
+				}
+
+		</script>
+
+		<script>
+			function swipe(obj,type){
+				 var config = {
+            disX: 50,
+            disY: 50,
+            responseTime: 500,
+            isPreventDefult: true,
+            className:""
+        };
+        
+       
+        var isMobile = "ontouchstart" in window;
+        var CLICK = isMobile ? "touchstart" : "mousedown";
+        var MOVE = isMobile ? "touchmove" : "mousemove";
+        var UP = isMobile ? "touchend" : "mouseup";
+        obj.addEventListener(CLICK, function (e) {
+            var e = isMobile ? e.changedTouches[0] : e;
+            var startX = e.pageX, startY = e.pageY, startTime = Date.now();
+            document.addEventListener(MOVE, function (e) {
+                e.preventDefault && e.preventDefault();
+                return false;
+            });
+            document.addEventListener(UP, function (e) {
+                var e = isMobile ? e.changedTouches[0] : e;
+                var endX = e.pageX, endY = e.pageY, endTime = Date.now();
+                if (endTime - startTime >= config.responseTime) {
+                    return;
+                }
+                switch (type.toLowerCase()) {
+                    case "down":
+                        if ((endY - startY) > config.disY && Math.abs((endY - startY) / (endX - startX)) > 1) {
+                            obj.fnDown && obj.fnDown(e);
+                        }
+                        break;
+                    case "up":
+                        if ((startY - endY) > config.disY && Math.abs((endY - startY) / (endX - startX)) > 1) {
+                              obj.fnUp && obj.fnUp(e);
+                        }
+                        break;
+                }
+               
+            });
+        });
+
+        return obj;
+			}
+
+
+			/*swipe(document.body,'up').fn = function(){
+				alert(2)
+			};
+
+			swipe(document.getElementById('fly-main-ui'),'up').fn = function(){
+				alert(22)
+			};*/
+
+
+
+		</script>
+		<script src='http://localhost:3001/index.js' onError='onError()'></script>
+		<!--
+
+			<script src='./assets/js/index.js'></script>
+			-->
+</body>
+</html>
