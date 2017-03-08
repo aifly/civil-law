@@ -30,3 +30,61 @@ img {
 input, textarea {
   outline: none;
 }
+
+.lt-index-main-ui{
+  color:#fff;
+  z-index: 10;
+  &.hide{
+    -webkit-transition:-webkit-transform .5s,opacity 1s;
+    @include transform(translate3d(0,-100%,0) scale(.8));
+    opacity:0;
+  }
+  .lt-index-person{
+     width: 4rem;
+     left: .5rem;
+     top:.5rem;
+  }
+  .lt-index-title{
+    width:8rem;
+    left: 1rem;
+    top: 3rem;
+    @include transform(translate3d(0,-1rem,0));
+    opacity:0;
+    @include transition(1s);
+    &.active{
+      @include transform(translate3d(0,0,0));
+      opacity:1;
+    }
+  }
+  .lt-index-book{
+    width: 8rem;
+    top:58%;
+    left: 1rem;
+    @include transform(translate3d(0,-1rem,0));
+    opacity:0;
+    @include transition(2s);
+    &.active{
+      @include transform(translate3d(0,0,0));
+      opacity:1;
+    } 
+    .shadow{
+      bottom: 65%;
+      width: 6.6rem;
+      left: .65rem;
+      opacity:0;
+      &.active{
+        opacity:1
+      }
+    }
+  }
+  .lt-index-tizi{
+    width:2.6rem;
+    right: .8rem;
+    bottom: 0;
+    opacity:0;
+    @include transition(2s);
+    &.active{
+      opacity:1;
+    }
+  }
+}

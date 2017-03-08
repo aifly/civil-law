@@ -32,9 +32,16 @@ input, textarea {
 }
 
 .lt-scene-ui{
+
+  @include transform(translate3d(0,80%,0) scale(.8));
+  @include transition(.5s);
+  opacity:0;
+  &.active{
+    @include transform(translate3d(0,0,0) scale(1));
+    opacity:1;
+  }
   @include transform3d();
   overflow: hidden;
-
   &>ul{
     @include transition_transform(.4s);
     background: #ffd1b2;
@@ -42,7 +49,7 @@ input, textarea {
         width:10rem;
         @include pos(r);
 
-        .lt-info{
+        @at-root.lt-info{
           @include pos(a);
           bottom: 1rem;
           left: 50%;
@@ -53,6 +60,46 @@ input, textarea {
            img{
             width:1rem;
            }
+        }
+
+        .lt-minfa{
+          width:2.5rem;
+          @include pos(a);
+          right: .1rem;
+          bottom: 1rem;
+        }
+
+        .lt-question-content{
+          @include pos(a);
+          z-index: 10;
+          width:8rem;
+          height: 4rem;
+          left: 1rem;
+          top:47%;
+          line-height: .72rem;
+          padding:.5rem .550rem;
+          box-sizing:border-box;
+          font-size: .45rem;
+        }
+
+        .lt-question-answer{
+            @include pos(a);
+            bottom: 1rem;
+           li{
+            color:#fff;
+            span{
+              color:#000;
+              background: #ccc;
+              padding:5px 10px;
+              @include br(7px);
+              margin-left: .2rem;
+              border:2px dashed #fff;
+            }
+            font-size: .45rem;
+            height: 1.3rem;
+            line-height: 1.3rem;
+           }
+           left: 1rem;
         }
     }
   }

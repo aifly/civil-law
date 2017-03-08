@@ -74,6 +74,26 @@
 
 	var _sceneIndexJsx2 = _interopRequireDefault(_sceneIndexJsx);
 
+	var _indexIndexJsx = __webpack_require__(186);
+
+	var _indexIndexJsx2 = _interopRequireDefault(_indexIndexJsx);
+
+	var _assetsLibsObserable = __webpack_require__(189);
+
+	var _assetsLibsObserable2 = _interopRequireDefault(_assetsLibsObserable);
+
+	var _jquery = __webpack_require__(181);
+
+	var _jquery2 = _interopRequireDefault(_jquery);
+
+	var _reactTapEventPlugin = __webpack_require__(190);
+
+	var _reactTapEventPlugin2 = _interopRequireDefault(_reactTapEventPlugin);
+
+	var obserable = new _assetsLibsObserable2['default']();
+
+	(0, _reactTapEventPlugin2['default'])();
+
 	var App = (function (_Component) {
 		_inherits(App, _Component);
 
@@ -88,16 +108,82 @@
 		_createClass(App, [{
 			key: 'render',
 			value: function render() {
+				var data = {
+					obserable: obserable
+				};
 				return _react2['default'].createElement(
 					'div',
 					null,
-					_react2['default'].createElement(_sceneIndexJsx2['default'], null)
+					_react2['default'].createElement(_indexIndexJsx2['default'], data),
+					_react2['default'].createElement(_sceneIndexJsx2['default'], data)
 				);
+			}
+		}, {
+			key: 'wxConfig',
+			value: function wxConfig() {
+
+				var durl = location.href.split('#')[0]; //window.location;
+				var code_durl = encodeURIComponent(durl);
+
+				_jquery2['default'].ajax({
+					url: 'http://api.zmiti.com/weixin/jssdk.php',
+					dataType: 'jsonp',
+					jsonp: "callback",
+					data: {
+						type: 'signature',
+						durl: durl
+					},
+					jsonpCallback: "jsonFlickrFeed",
+					success: function success(data) {
+						wx.config({
+							debug: false, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
+							appId: 'wxfacf4a639d9e3bcc', // 必填，公众号的唯一标识
+							timestamp: '1488558145', // 必填，生成签名的时间戳
+							nonceStr: 'Wm3WZYTPz0wzccnW', // 必填，生成签名的随机串
+							signature: data.signature, // 必填，签名，见附录1
+							jsApiList: ['checkJsApi', 'onMenuShareTimeline', 'onMenuShareAppMessage', 'onMenuShareQQ', 'onMenuShareWeibo', 'hideMenuItems', 'showMenuItems', 'hideAllNonBaseMenuItem', 'showAllNonBaseMenuItem'] // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
+						});
+
+						wx.ready(function () {
+							//朋友圈
+							wx.onMenuShareTimeline({
+								title: "猛戳“大民”，“点开”影响你一生的故事", // 分享标题
+								link: durl, // 分享链接
+								imgUrl: "http://webapi.zmiti.com/public/xwords/assets/images/300.jpg", // 分享图标
+								desc: "猛戳“大民”，“点开”影响你一生的故事",
+								success: function success() {},
+								cancel: function cancel() {}
+							});
+							//朋友
+							wx.onMenuShareAppMessage({
+								title: "猛戳“大民”，“点开”影响你一生的故事", // 分享标题
+								link: durl, // 分享链接
+								imgUrl: "http://webapi.zmiti.com/public/xwords/assets/images/300.jpg", // 分享图标
+								type: "link",
+								dataUrl: "",
+								desc: "猛戳“大民”，“点开”影响你一生的故事",
+								success: function success() {},
+								cancel: function cancel() {}
+							});
+							//qq
+							wx.onMenuShareQQ({
+								title: "猛戳“大民”，“点开”影响你一生的故事", // 分享标题
+								link: durl, // 分享链接
+								imgUrl: "http://webapi.zmiti.com/public/xwords/assets/images/300.jpg", // 分享图标
+								desc: "猛戳“大民”，“点开”影响你一生的故事",
+								success: function success() {},
+								cancel: function cancel() {}
+							});
+						});
+					}
+
+				});
 			}
 		}, {
 			key: 'componentWillMount',
 			value: function componentWillMount() {
 				document.querySelector('html').style.fontSize = this.viewW / 10 + 'px';
+				this.wxConfig();
 			}
 		}]);
 
@@ -21680,38 +21766,45 @@
 			this.state = {
 				iNow: 0, //当前问题索引
 				score: 0, //分数。
+				show: true,
 				len: 6,
 				questionList: [{
-					questionTitle: '小明能要这房子吗？',
+					imgSrc: './assets/images/q1.png',
+					questionTitle: '调皮的小明偷偷用妈妈手机发出去1000元红包，妈妈能要回来吗？',
 					A: '这个真没有，只能给老妈',
 					B: '这个可以有',
 					C: '不关心',
 					right: 0
 				}, {
+					imgSrc: './assets/images/q2.png',
 					questionTitle: '１０００元红包，妈妈能要回来吗？',
 					A: '必须滴',
 					B: '想啥呢,发出去还能要回来',
 					C: '此处应该有红包',
 					right: 1
 				}, {
+					imgSrc: './assets/images/q3.png',
 					questionTitle: '小明“Ｑ”币被盗，他要去报警，会有人管吗？',
 					A: '“Ｑ”币被盗，你找“ＱＱ”',
 					B: '来吧，警察叔叔为你撑腰',
 					C: '请先告诉我啥叫“Ｑ”币',
 					right: 1
 				}, {
+					imgSrc: './assets/images/q4.png',
 					questionTitle: '小明需要承担民事责任吗',
 					A: '“承担，扶的时候你就该想到',
 					B: '不承担，好人该有好报',
 					C: '不知道，我有点懵圈儿',
 					right: 1
 				}, {
+					imgSrc: './assets/images/q5.png',
 					questionTitle: '小明能获得法人身份吗',
 					A: '法人不是你想当，想当就能当',
 					B: 'ＹＥＳ，ＯＦ　ＣＯＵＲＳＥ',
 					C: '申请求助场外观众',
 					right: 1
 				}, {
+					imgSrc: './assets/images/q6.png',
 					questionTitle: '小明能否成为被监护人',
 					A: '啥？被监护的不都是孩子吗',
 					B: '最美不过夕阳红，老人就得有人管',
@@ -21726,79 +21819,93 @@
 		_createClass(SceneApp, [{
 			key: 'render',
 			value: function render() {
+				var _this = this;
 
+				var questionStyle = {
+					background: "url(./assets/images/q-bg.png) no-repeat center top",
+					backgroundSize: 'contain'
+				};
 				return _react2['default'].createElement(
 					'div',
-					{ className: 'lt-full lt-scene-ui' },
+					{ className: 'lt-full lt-scene-ui ' + (this.state.show ? 'active' : '') },
 					_react2['default'].createElement(
 						'ul',
 						{ ref: 'lt-question-list', style: { height: this.viewH * 6, WebkitTransform: 'translate3d(0,-' + this.state.iNow * this.viewH + 'px,0)' } },
-						_react2['default'].createElement(
-							'li',
-							{ style: { height: this.viewH } },
-							_react2['default'].createElement('img', { src: './assets/images/q1.png' }),
-							_react2['default'].createElement(
-								'span',
-								{ className: 'lt-info' },
-								_react2['default'].createElement('img', { src: './assets/images/info.png' })
-							)
-						),
-						_react2['default'].createElement(
-							'li',
-							{ style: { height: this.viewH } },
-							_react2['default'].createElement(
-								'span',
-								{ className: 'lt-info' },
-								_react2['default'].createElement('img', { src: './assets/images/info.png' })
-							)
-						),
-						_react2['default'].createElement(
-							'li',
-							{ style: { height: this.viewH } },
-							_react2['default'].createElement(
-								'span',
-								{ className: 'lt-info' },
-								_react2['default'].createElement('img', { src: './assets/images/info.png' })
-							)
-						),
-						_react2['default'].createElement(
-							'li',
-							{ style: { height: this.viewH } },
-							_react2['default'].createElement(
-								'span',
-								{ className: 'lt-info' },
-								_react2['default'].createElement('img', { src: './assets/images/info.png' })
-							)
-						),
-						_react2['default'].createElement(
-							'li',
-							{ style: { height: this.viewH } },
-							_react2['default'].createElement(
-								'span',
-								{ className: 'lt-info' },
-								_react2['default'].createElement('img', { src: './assets/images/info.png' })
-							)
-						),
-						_react2['default'].createElement(
-							'li',
-							{ style: { height: this.viewH } },
-							_react2['default'].createElement(
-								'span',
-								{ className: 'lt-info' },
-								_react2['default'].createElement('img', { src: './assets/images/info.png' })
-							)
-						)
+						this.state.questionList.map(function (item, i) {
+							return _react2['default'].createElement(
+								'li',
+								{ style: { height: _this.viewH }, key: i },
+								_react2['default'].createElement('img', { src: item.imgSrc }),
+								_react2['default'].createElement(
+									'div',
+									{ className: 'lt-question-content', style: questionStyle },
+									item.questionTitle
+								),
+								_react2['default'].createElement(
+									'ol',
+									{ className: 'lt-question-answer' },
+									_react2['default'].createElement(
+										'li',
+										{ onTouchTap: _this.answer.bind(_this, 0) },
+										'A:',
+										_react2['default'].createElement(
+											'span',
+											null,
+											item.A
+										)
+									),
+									_react2['default'].createElement(
+										'li',
+										{ onTouchTap: _this.answer.bind(_this, 1) },
+										'B:',
+										_react2['default'].createElement(
+											'span',
+											null,
+											item.B
+										)
+									),
+									_react2['default'].createElement(
+										'li',
+										{ onTouchTap: _this.answer.bind(_this, 2) },
+										'C:',
+										_react2['default'].createElement(
+											'span',
+											null,
+											item.C
+										)
+									)
+								),
+								_react2['default'].createElement('img', { src: './assets/images/minfa.png', className: 'lt-minfa' }),
+								_this.state.questionList.length - 1 !== i && false && _react2['default'].createElement(
+									'span',
+									{ className: 'lt-info' },
+									_react2['default'].createElement('img', { src: './assets/images/info.png' })
+								)
+							);
+						})
 					)
 				);
 			}
 		}, {
+			key: 'answer',
+			value: function answer(index) {
+				alert(index);
+			}
+		}, {
 			key: 'componentDidMount',
 			value: function componentDidMount() {
+				var _this2 = this;
+
+				var obserable = this.props.obserable;
+
+				obserable.on("indexShow", function () {
+					_this2.setState({ show: true });
+				});
 				var s = this;
 				swipe(s.refs['lt-question-list'], 'up').fnUp = function () {
 					var iNow = s.state.iNow + 1;
-					if (s.state.iNow >= s.state.len - 1) {
-						iNow = s.state.len - 1;
+					if (s.state.iNow >= s.state.questionList.length - 1) {
+						iNow = s.state.questionList.length - 1;
 					}
 					s.setState({
 						iNow: iNow
@@ -31746,7 +31853,7 @@
 
 
 	// module
-	exports.push([module.id, "@charset \"UTF-8\";\r\n/*.ant-btn:focus, .ant-btn:hover,.ant-input:focus, .ant-input:hover {\r\n    background-color: #fff;\r\n    border-color: #bf1616;\r\n    box-shadow: 0 0 0 2px rgba(191, 22, 22, 0.1);\r\n}*/\r\n.lt-full {\r\n  width: 100%;\r\n  height: 100%;\r\n  position: absolute;\r\n  left: 0;\r\n  top: 0; }\r\n\r\nhtml, body, div, p, ul, li, ol, dl, dt, dd, header, footer, video, h1, h2, h3, h4, canvas, section, figure {\r\n  padding: 0;\r\n  margin: 0; }\r\n\r\na {\r\n  text-decoration: none; }\r\n\r\nli {\r\n  list-style: none; }\r\n\r\nhtml, body {\r\n  height: 100%; }\r\n\r\nbody {\r\n  font-family: \"Helvetica Neue\", 'Helvetica', \"Microsoft YaHei\", '\\5FAE\\8F6F\\96C5\\9ED1', arial, sans-serif;\r\n  overflow-x: hidden; }\r\n\r\nimg {\r\n  border: none;\r\n  vertical-align: middle;\r\n  width: 100%;\r\n  height: auto; }\r\n\r\ninput, textarea {\r\n  outline: none; }\r\n\r\n.lt-scene-ui {\r\n  -webkit-transform-style: preserve-3d;\r\n  transform-style: preserve-3d;\r\n  perspective: 800px;\r\n  -webkit-perspective: 800px;\r\n  overflow: hidden; }\r\n  .lt-scene-ui > ul {\r\n    -webkit-transition: -webkit-transform 0.4s;\r\n    transition: -webkit-transform 0.4s;\r\n    transition: transform 0.4s;\r\n    transition: transform 0.4s, -webkit-transform 0.4s;\r\n    background: #ffd1b2; }\r\n    .lt-scene-ui > ul li {\r\n      width: 10rem;\r\n      position: relative; }\r\n      .lt-scene-ui > ul li .lt-info {\r\n        position: absolute;\r\n        bottom: 1rem;\r\n        left: 50%;\r\n        -webkit-animation: ltshake 1.5s infinite ease;\r\n        animation: ltshake 1.5s infinite ease;\r\n        margin-left: -.5rem;\r\n        width: 1rem; }\r\n        .lt-scene-ui > ul li .lt-info img {\r\n          width: 1rem; }\r\n\r\n@-webkit-keyframes ltshake {\r\n  from {\r\n    -webkit-transform: translateY(0);\r\n    opacity: 0; }\r\n  to {\r\n    -webkit-transform: translateY(-25px);\r\n    opacity: 1; } }\r\n\r\n/*# sourceMappingURL=index.css.map */", ""]);
+	exports.push([module.id, "@charset \"UTF-8\";\r\n/*.ant-btn:focus, .ant-btn:hover,.ant-input:focus, .ant-input:hover {\r\n    background-color: #fff;\r\n    border-color: #bf1616;\r\n    box-shadow: 0 0 0 2px rgba(191, 22, 22, 0.1);\r\n}*/\r\n.lt-full {\r\n  width: 100%;\r\n  height: 100%;\r\n  position: absolute;\r\n  left: 0;\r\n  top: 0; }\r\n\r\n.lt-pos-a {\r\n  position: absolute; }\r\n\r\n.lt-pos-r {\r\n  position: relative; }\r\n\r\n.lt-pos-f {\r\n  position: fixed; }\r\n\r\nhtml, body, div, p, ul, li, ol, dl, dt, dd, header, footer, video, h1, h2, h3, h4, canvas, section, figure {\r\n  padding: 0;\r\n  margin: 0; }\r\n\r\na {\r\n  text-decoration: none; }\r\n\r\nli {\r\n  list-style: none; }\r\n\r\nhtml, body {\r\n  height: 100%; }\r\n\r\nbody {\r\n  font-family: \"Helvetica Neue\", 'Helvetica', \"Microsoft YaHei\", '\\5FAE\\8F6F\\96C5\\9ED1', arial, sans-serif;\r\n  overflow-x: hidden; }\r\n\r\nimg {\r\n  border: none;\r\n  vertical-align: middle;\r\n  width: 100%;\r\n  height: auto; }\r\n\r\ninput, textarea {\r\n  outline: none; }\r\n\r\n.lt-scene-ui {\r\n  -webkit-transform: translate3d(0, 80%, 0) scale(0.8);\r\n  transform: translate3d(0, 80%, 0) scale(0.8);\r\n  -webkit-transition: 0.5s;\r\n  transition: 0.5s;\r\n  opacity: 0;\r\n  -webkit-transform-style: preserve-3d;\r\n  transform-style: preserve-3d;\r\n  perspective: 800px;\r\n  -webkit-perspective: 800px;\r\n  overflow: hidden; }\r\n  .lt-scene-ui.active {\r\n    -webkit-transform: translate3d(0, 0, 0) scale(1);\r\n    transform: translate3d(0, 0, 0) scale(1);\r\n    opacity: 1; }\r\n  .lt-scene-ui > ul {\r\n    -webkit-transition: -webkit-transform 0.4s;\r\n    transition: -webkit-transform 0.4s;\r\n    transition: transform 0.4s;\r\n    transition: transform 0.4s, -webkit-transform 0.4s;\r\n    background: #ffd1b2; }\r\n    .lt-scene-ui > ul li {\r\n      width: 10rem;\r\n      position: relative; }\r\n      .lt-info {\r\n        position: absolute;\r\n        bottom: 1rem;\r\n        left: 50%;\r\n        -webkit-animation: ltshake 1.5s infinite ease;\r\n        animation: ltshake 1.5s infinite ease;\r\n        margin-left: -.5rem;\r\n        width: 1rem; }\r\n        .lt-info img {\r\n          width: 1rem; }\r\n      .lt-scene-ui > ul li .lt-minfa {\r\n        width: 2.5rem;\r\n        position: absolute;\r\n        right: .1rem;\r\n        bottom: 1rem; }\r\n      .lt-scene-ui > ul li .lt-question-content {\r\n        position: absolute;\r\n        z-index: 10;\r\n        width: 8rem;\r\n        height: 4rem;\r\n        left: 1rem;\r\n        top: 47%;\r\n        line-height: .72rem;\r\n        padding: .5rem .550rem;\r\n        box-sizing: border-box;\r\n        font-size: .45rem; }\r\n      .lt-scene-ui > ul li .lt-question-answer {\r\n        position: absolute;\r\n        bottom: 1rem;\r\n        left: 1rem; }\r\n        .lt-scene-ui > ul li .lt-question-answer li {\r\n          color: #fff;\r\n          font-size: .45rem;\r\n          height: 1.3rem;\r\n          line-height: 1.3rem; }\r\n          .lt-scene-ui > ul li .lt-question-answer li span {\r\n            color: #000;\r\n            background: #ccc;\r\n            padding: 5px 10px;\r\n            border-radius: 7px;\r\n            margin-left: .2rem;\r\n            border: 2px dashed #fff; }\r\n\r\n@-webkit-keyframes ltshake {\r\n  from {\r\n    -webkit-transform: translateY(0);\r\n    opacity: 0; }\r\n  to {\r\n    -webkit-transform: translateY(-25px);\r\n    opacity: 1; } }\r\n\r\n/*# sourceMappingURL=index.css.map */", ""]);
 
 	// exports
 
@@ -32058,6 +32165,658 @@
 			URL.revokeObjectURL(oldSrc);
 	}
 
+
+/***/ },
+/* 186 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("F:\\xuchang2017\\project\\civil-law\\node_modules\\react-hot-api\\modules\\index.js"), RootInstanceProvider = require("F:\\xuchang2017\\project\\civil-law\\node_modules\\react-hot-loader\\RootInstanceProvider.js"), ReactMount = require("react-dom/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
+
+	'use strict';
+
+	Object.defineProperty(exports, '__esModule', {
+		value: true
+	});
+
+	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+
+	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; desc = parent = undefined; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _componentsPublicPubJsx = __webpack_require__(180);
+
+	__webpack_require__(187);
+
+	var _jquery = __webpack_require__(181);
+
+	var _jquery2 = _interopRequireDefault(_jquery);
+
+	var IndexApp = (function (_Component) {
+		_inherits(IndexApp, _Component);
+
+		function IndexApp(props) {
+			_classCallCheck(this, IndexApp);
+
+			_get(Object.getPrototypeOf(IndexApp.prototype), 'constructor', this).call(this, props);
+			this.state = {
+				titleShow: false,
+				bookShow: false,
+				shadowShow: false,
+				tiziShow: false,
+				mainHide: false
+			};
+			this.viewW = document.documentElement.clientWidth;
+			this.viewH = document.documentElement.clientHeight;
+		}
+
+		_createClass(IndexApp, [{
+			key: 'render',
+			value: function render() {
+				var mainStyle = {
+					background: '#e5dcd0 url(./assets/images/index-bg.png) no-repeat center top',
+					backgroundSize: 'cover'
+				};
+				return _react2['default'].createElement(
+					'div',
+					{ className: 'lt-index-main-ui lt-full ' + (this.state.mainHide ? 'hide' : ''), ref: 'lt-index-main-ui', style: mainStyle },
+					_react2['default'].createElement(
+						'div',
+						{ className: 'lt-index-person lt-pos-a' },
+						_react2['default'].createElement('img', { src: './assets/images/person.png' })
+					),
+					_react2['default'].createElement(
+						'div',
+						{ className: 'lt-index-title lt-pos-a ' + (this.state.titleShow ? 'active' : '') },
+						_react2['default'].createElement('img', { src: './assets/images/title.png' })
+					),
+					_react2['default'].createElement(
+						'div',
+						{ className: 'lt-index-book lt-pos-a ' + (this.state.bookShow ? 'active' : '') },
+						_react2['default'].createElement('img', { src: './assets/images/book.png' }),
+						_react2['default'].createElement('img', { className: 'shadow lt-pos-a ' + (this.state.shadowShow ? 'active' : ''), src: './assets/images/shadow.png' })
+					),
+					_react2['default'].createElement(
+						'div',
+						{ className: 'lt-index-tizi lt-pos-a ' + (this.state.tiziShow ? 'active' : '') },
+						_react2['default'].createElement('img', { src: './assets/images/tizi.png' })
+					),
+					this.state.tiziShow && _react2['default'].createElement(
+						'span',
+						{ className: 'lt-info' },
+						_react2['default'].createElement('img', { src: './assets/images/info.png' })
+					)
+				);
+			}
+		}, {
+			key: 'componentDidMount',
+			value: function componentDidMount() {
+				var s = this;
+				var wait = function wait(dtd) {
+					var dtd = _jquery2['default'].Deferred(); //在函数内部，新建一个Deferred对象
+					var tasks = function tasks() {
+						s.setState({
+							titleShow: true
+						});
+						dtd.resolve(); // 改变Deferred对象的执行状态
+					};
+
+					setTimeout(tasks, 1000);
+					return dtd.promise(); // 返回promise对象
+				};
+				_jquery2['default'].when(wait()).done(function () {
+					setTimeout(function () {
+						s.setState({
+							bookShow: true
+						});
+					}, 1000);
+				}).done(function () {
+					setTimeout(function () {
+						s.setState({
+							shadowShow: true,
+							tiziShow: true
+						});
+					}, 3000);
+				});
+
+				var obserable = this.props.obserable;
+
+				swipe(this.refs['lt-index-main-ui'], 'up').fnUp = function () {
+					s.setState({ mainHide: true });
+					obserable.trigger({ type: 'indexShow' });
+				};
+
+				s.setState({ mainHide: true });
+				obserable.trigger({ type: 'indexShow' });
+			}
+		}]);
+
+		return IndexApp;
+	})(_react.Component);
+
+	exports['default'] = (0, _componentsPublicPubJsx.PubCom)(IndexApp);
+	module.exports = exports['default'];
+
+	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("F:\\xuchang2017\\project\\civil-law\\node_modules\\react-hot-loader\\makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot apply hot update to " + "index.jsx" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
+
+/***/ },
+/* 187 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// style-loader: Adds some css to the DOM by adding a <style> tag
+
+	// load the styles
+	var content = __webpack_require__(188);
+	if(typeof content === 'string') content = [[module.id, content, '']];
+	// add the styles to the DOM
+	var update = __webpack_require__(185)(content, {});
+	if(content.locals) module.exports = content.locals;
+	// Hot Module Replacement
+	if(false) {
+		// When the styles change, update the <style> tags
+		if(!content.locals) {
+			module.hot.accept("!!../../../node_modules/css-loader/index.js!./index.css", function() {
+				var newContent = require("!!../../../node_modules/css-loader/index.js!./index.css");
+				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+				update(newContent);
+			});
+		}
+		// When the module is disposed, remove the <style> tags
+		module.hot.dispose(function() { update(); });
+	}
+
+/***/ },
+/* 188 */
+/***/ function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(184)();
+	// imports
+
+
+	// module
+	exports.push([module.id, "@charset \"UTF-8\";\r\n/*.ant-btn:focus, .ant-btn:hover,.ant-input:focus, .ant-input:hover {\r\n    background-color: #fff;\r\n    border-color: #bf1616;\r\n    box-shadow: 0 0 0 2px rgba(191, 22, 22, 0.1);\r\n}*/\r\n.lt-full {\r\n  width: 100%;\r\n  height: 100%;\r\n  position: absolute;\r\n  left: 0;\r\n  top: 0; }\r\n\r\n.lt-pos-a {\r\n  position: absolute; }\r\n\r\n.lt-pos-r {\r\n  position: relative; }\r\n\r\n.lt-pos-f {\r\n  position: fixed; }\r\n\r\nhtml, body, div, p, ul, li, ol, dl, dt, dd, header, footer, video, h1, h2, h3, h4, canvas, section, figure {\r\n  padding: 0;\r\n  margin: 0; }\r\n\r\na {\r\n  text-decoration: none; }\r\n\r\nli {\r\n  list-style: none; }\r\n\r\nhtml, body {\r\n  height: 100%; }\r\n\r\nbody {\r\n  font-family: \"Helvetica Neue\", 'Helvetica', \"Microsoft YaHei\", '\\5FAE\\8F6F\\96C5\\9ED1', arial, sans-serif;\r\n  overflow-x: hidden; }\r\n\r\nimg {\r\n  border: none;\r\n  vertical-align: middle;\r\n  width: 100%;\r\n  height: auto; }\r\n\r\ninput, textarea {\r\n  outline: none; }\r\n\r\n.lt-index-main-ui {\r\n  color: #fff;\r\n  z-index: 10; }\r\n  .lt-index-main-ui.hide {\r\n    -webkit-transition: -webkit-transform .5s,opacity 1s;\r\n    -webkit-transform: translate3d(0, -100%, 0) scale(0.8);\r\n    transform: translate3d(0, -100%, 0) scale(0.8);\r\n    opacity: 0; }\r\n  .lt-index-main-ui .lt-index-person {\r\n    width: 4rem;\r\n    left: .5rem;\r\n    top: .5rem; }\r\n  .lt-index-main-ui .lt-index-title {\r\n    width: 8rem;\r\n    left: 1rem;\r\n    top: 3rem;\r\n    -webkit-transform: translate3d(0, -1rem, 0);\r\n    transform: translate3d(0, -1rem, 0);\r\n    opacity: 0;\r\n    -webkit-transition: 1s;\r\n    transition: 1s; }\r\n    .lt-index-main-ui .lt-index-title.active {\r\n      -webkit-transform: translate3d(0, 0, 0);\r\n      transform: translate3d(0, 0, 0);\r\n      opacity: 1; }\r\n  .lt-index-main-ui .lt-index-book {\r\n    width: 8rem;\r\n    top: 58%;\r\n    left: 1rem;\r\n    -webkit-transform: translate3d(0, -1rem, 0);\r\n    transform: translate3d(0, -1rem, 0);\r\n    opacity: 0;\r\n    -webkit-transition: 2s;\r\n    transition: 2s; }\r\n    .lt-index-main-ui .lt-index-book.active {\r\n      -webkit-transform: translate3d(0, 0, 0);\r\n      transform: translate3d(0, 0, 0);\r\n      opacity: 1; }\r\n    .lt-index-main-ui .lt-index-book .shadow {\r\n      bottom: 65%;\r\n      width: 6.6rem;\r\n      left: .65rem;\r\n      opacity: 0; }\r\n      .lt-index-main-ui .lt-index-book .shadow.active {\r\n        opacity: 1; }\r\n  .lt-index-main-ui .lt-index-tizi {\r\n    width: 2.6rem;\r\n    right: .8rem;\r\n    bottom: 0;\r\n    opacity: 0;\r\n    -webkit-transition: 2s;\r\n    transition: 2s; }\r\n    .lt-index-main-ui .lt-index-tizi.active {\r\n      opacity: 1; }\r\n\r\n/*# sourceMappingURL=index.css.map */", ""]);
+
+	// exports
+
+
+/***/ },
+/* 189 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("F:\\xuchang2017\\project\\civil-law\\node_modules\\react-hot-api\\modules\\index.js"), RootInstanceProvider = require("F:\\xuchang2017\\project\\civil-law\\node_modules\\react-hot-loader\\RootInstanceProvider.js"), ReactMount = require("react-dom/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
+
+	"use strict";
+
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+
+	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	var Obserable = (function () {
+		function Obserable() {
+			_classCallCheck(this, Obserable);
+
+			this.handlers = {};
+		}
+
+		_createClass(Obserable, [{
+			key: "on",
+			value: function on(type, handler) {
+
+				this.handlers[type] = this.handlers[type] || [];
+
+				this.off(type);
+				this.handlers[type].push({ handler: handler, type: type });
+			}
+		}, {
+			key: "off",
+			value: function off(type) {
+				var _this = this;
+
+				this.handlers[type] && this.handlers[type].forEach(function (item, i) {
+					if (item.type === type) {
+						_this.handlers[type].splice(i, 1);
+					};
+				});
+			}
+		}, {
+			key: "trigger",
+			value: function trigger(event) {
+
+				if (!event.target) {
+					event.target = this;
+				}
+				if (this.handlers[event.type] instanceof Array) {
+					var handlers = this.handlers[event.type]; //检出被观察者注册的观察者
+					for (var i = 0, len = handlers.length; i < len; i++) {
+						return handlers[i].handler(event.data); //回调函数执行，也就是观察者更新自己
+					}
+				}
+			}
+		}]);
+
+		return Obserable;
+	})();
+
+	exports["default"] = Obserable;
+	module.exports = exports["default"];
+
+	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("F:\\xuchang2017\\project\\civil-law\\node_modules\\react-hot-loader\\makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot apply hot update to " + "obserable.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
+
+/***/ },
+/* 190 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/* WEBPACK VAR INJECTION */(function(process) {var invariant = __webpack_require__(8);
+	var defaultClickRejectionStrategy = __webpack_require__(191);
+
+	var alreadyInjected = false;
+
+	module.exports = function injectTapEventPlugin (strategyOverrides) {
+	  strategyOverrides = strategyOverrides || {}
+	  var shouldRejectClick = strategyOverrides.shouldRejectClick || defaultClickRejectionStrategy;
+
+	  if (process.env.NODE_ENV !== 'production') {
+	    invariant(
+	      !alreadyInjected,
+	      'injectTapEventPlugin(): Can only be called once per application lifecycle.\n\n\
+	It is recommended to call injectTapEventPlugin() just before you call \
+	ReactDOM.render(). If you are using an external library which calls injectTapEventPlugin() \
+	itself, please contact the maintainer as it shouldn\'t be called in library code and \
+	should be injected by the application.'
+	    )
+	  }
+
+	  alreadyInjected = true;
+
+	  __webpack_require__(42).injection.injectEventPluginsByName({
+	    'TapEventPlugin':       __webpack_require__(192)(shouldRejectClick)
+	  });
+	};
+
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
+
+/***/ },
+/* 191 */
+/***/ function(module, exports) {
+
+	module.exports = function(lastTouchEvent, clickTimestamp) {
+	  if (lastTouchEvent && (clickTimestamp - lastTouchEvent) < 750) {
+	    return true;
+	  }
+	};
+
+
+/***/ },
+/* 192 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/**
+	 * Copyright 2013-2014 Facebook, Inc.
+	 *
+	 * Licensed under the Apache License, Version 2.0 (the "License");
+	 * you may not use this file except in compliance with the License.
+	 * You may obtain a copy of the License at
+	 *
+	 * http://www.apache.org/licenses/LICENSE-2.0
+	 *
+	 * Unless required by applicable law or agreed to in writing, software
+	 * distributed under the License is distributed on an "AS IS" BASIS,
+	 * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+	 * See the License for the specific language governing permissions and
+	 * limitations under the License.
+	 *
+	 * @providesModule TapEventPlugin
+	 * @typechecks static-only
+	 */
+
+	"use strict";
+
+	var EventConstants = __webpack_require__(193);
+	var EventPluginUtils = __webpack_require__(44);
+	var EventPropagators = __webpack_require__(41);
+	var SyntheticUIEvent = __webpack_require__(76);
+	var TouchEventUtils = __webpack_require__(194);
+	var ViewportMetrics = __webpack_require__(77);
+
+	var keyOf = __webpack_require__(195);
+	var topLevelTypes = EventConstants.topLevelTypes;
+
+	var isStartish = EventPluginUtils.isStartish;
+	var isEndish = EventPluginUtils.isEndish;
+
+	var isTouch = function(topLevelType) {
+	  var touchTypes = [
+	    'topTouchCancel',
+	    'topTouchEnd',
+	    'topTouchStart',
+	    'topTouchMove'
+	  ];
+	  return touchTypes.indexOf(topLevelType) >= 0;
+	}
+
+	/**
+	 * Number of pixels that are tolerated in between a `touchStart` and `touchEnd`
+	 * in order to still be considered a 'tap' event.
+	 */
+	var tapMoveThreshold = 10;
+	var ignoreMouseThreshold = 750;
+	var startCoords = {x: null, y: null};
+	var lastTouchEvent = null;
+
+	var Axis = {
+	  x: {page: 'pageX', client: 'clientX', envScroll: 'currentPageScrollLeft'},
+	  y: {page: 'pageY', client: 'clientY', envScroll: 'currentPageScrollTop'}
+	};
+
+	function getAxisCoordOfEvent(axis, nativeEvent) {
+	  var singleTouch = TouchEventUtils.extractSingleTouch(nativeEvent);
+	  if (singleTouch) {
+	    return singleTouch[axis.page];
+	  }
+	  return axis.page in nativeEvent ?
+	    nativeEvent[axis.page] :
+	    nativeEvent[axis.client] + ViewportMetrics[axis.envScroll];
+	}
+
+	function getDistance(coords, nativeEvent) {
+	  var pageX = getAxisCoordOfEvent(Axis.x, nativeEvent);
+	  var pageY = getAxisCoordOfEvent(Axis.y, nativeEvent);
+	  return Math.pow(
+	    Math.pow(pageX - coords.x, 2) + Math.pow(pageY - coords.y, 2),
+	    0.5
+	  );
+	}
+
+	var touchEvents = [
+	  'topTouchStart',
+	  'topTouchCancel',
+	  'topTouchEnd',
+	  'topTouchMove',
+	];
+
+	var dependencies = [
+	  'topMouseDown',
+	  'topMouseMove',
+	  'topMouseUp',
+	].concat(touchEvents);
+
+	var eventTypes = {
+	  touchTap: {
+	    phasedRegistrationNames: {
+	      bubbled: keyOf({onTouchTap: null}),
+	      captured: keyOf({onTouchTapCapture: null})
+	    },
+	    dependencies: dependencies
+	  }
+	};
+
+	var now = (function() {
+	  if (Date.now) {
+	    return Date.now;
+	  } else {
+	    // IE8 support: http://stackoverflow.com/questions/9430357/please-explain-why-and-how-new-date-works-as-workaround-for-date-now-in
+	    return function () {
+	      return +new Date;
+	    }
+	  }
+	})();
+
+	function createTapEventPlugin(shouldRejectClick) {
+	  return {
+
+	    tapMoveThreshold: tapMoveThreshold,
+
+	    ignoreMouseThreshold: ignoreMouseThreshold,
+
+	    eventTypes: eventTypes,
+
+	    /**
+	     * @param {string} topLevelType Record from `EventConstants`.
+	     * @param {DOMEventTarget} targetInst The listening component root node.
+	     * @param {object} nativeEvent Native browser event.
+	     * @return {*} An accumulation of synthetic events.
+	     * @see {EventPluginHub.extractEvents}
+	     */
+	    extractEvents: function(
+	      topLevelType,
+	      targetInst,
+	      nativeEvent,
+	      nativeEventTarget
+	    ) {
+
+	      if (!isStartish(topLevelType) && !isEndish(topLevelType)) {
+	        return null;
+	      }
+
+	      if (isTouch(topLevelType)) {
+	        lastTouchEvent = now();
+	      } else {
+	        if (shouldRejectClick(lastTouchEvent, now())) {
+	          return null;
+	        }
+	      }
+
+	      var event = null;
+	      var distance = getDistance(startCoords, nativeEvent);
+	      if (isEndish(topLevelType) && distance < tapMoveThreshold) {
+	        event = SyntheticUIEvent.getPooled(
+	          eventTypes.touchTap,
+	          targetInst,
+	          nativeEvent,
+	          nativeEventTarget
+	        );
+	      }
+	      if (isStartish(topLevelType)) {
+	        startCoords.x = getAxisCoordOfEvent(Axis.x, nativeEvent);
+	        startCoords.y = getAxisCoordOfEvent(Axis.y, nativeEvent);
+	      } else if (isEndish(topLevelType)) {
+	        startCoords.x = 0;
+	        startCoords.y = 0;
+	      }
+	      EventPropagators.accumulateTwoPhaseDispatches(event);
+	      return event;
+	    }
+
+	  };
+	}
+
+	module.exports = createTapEventPlugin;
+
+
+/***/ },
+/* 193 */
+/***/ function(module, exports) {
+
+	/**
+	 * Copyright 2013-present, Facebook, Inc.
+	 * All rights reserved.
+	 *
+	 * This source code is licensed under the BSD-style license found in the
+	 * LICENSE file in the root directory of this source tree. An additional grant
+	 * of patent rights can be found in the PATENTS file in the same directory.
+	 *
+	 */
+
+	'use strict';
+
+	/**
+	 * Types of raw signals from the browser caught at the top level.
+	 */
+	var topLevelTypes = {
+	  topAbort: null,
+	  topAnimationEnd: null,
+	  topAnimationIteration: null,
+	  topAnimationStart: null,
+	  topBlur: null,
+	  topCanPlay: null,
+	  topCanPlayThrough: null,
+	  topChange: null,
+	  topClick: null,
+	  topCompositionEnd: null,
+	  topCompositionStart: null,
+	  topCompositionUpdate: null,
+	  topContextMenu: null,
+	  topCopy: null,
+	  topCut: null,
+	  topDoubleClick: null,
+	  topDrag: null,
+	  topDragEnd: null,
+	  topDragEnter: null,
+	  topDragExit: null,
+	  topDragLeave: null,
+	  topDragOver: null,
+	  topDragStart: null,
+	  topDrop: null,
+	  topDurationChange: null,
+	  topEmptied: null,
+	  topEncrypted: null,
+	  topEnded: null,
+	  topError: null,
+	  topFocus: null,
+	  topInput: null,
+	  topInvalid: null,
+	  topKeyDown: null,
+	  topKeyPress: null,
+	  topKeyUp: null,
+	  topLoad: null,
+	  topLoadedData: null,
+	  topLoadedMetadata: null,
+	  topLoadStart: null,
+	  topMouseDown: null,
+	  topMouseMove: null,
+	  topMouseOut: null,
+	  topMouseOver: null,
+	  topMouseUp: null,
+	  topPaste: null,
+	  topPause: null,
+	  topPlay: null,
+	  topPlaying: null,
+	  topProgress: null,
+	  topRateChange: null,
+	  topReset: null,
+	  topScroll: null,
+	  topSeeked: null,
+	  topSeeking: null,
+	  topSelectionChange: null,
+	  topStalled: null,
+	  topSubmit: null,
+	  topSuspend: null,
+	  topTextInput: null,
+	  topTimeUpdate: null,
+	  topTouchCancel: null,
+	  topTouchEnd: null,
+	  topTouchMove: null,
+	  topTouchStart: null,
+	  topTransitionEnd: null,
+	  topVolumeChange: null,
+	  topWaiting: null,
+	  topWheel: null
+	};
+
+	var EventConstants = {
+	  topLevelTypes: topLevelTypes
+	};
+
+	module.exports = EventConstants;
+
+/***/ },
+/* 194 */
+/***/ function(module, exports) {
+
+	/**
+	 * Copyright 2013-2014 Facebook, Inc.
+	 *
+	 * Licensed under the Apache License, Version 2.0 (the "License");
+	 * you may not use this file except in compliance with the License.
+	 * You may obtain a copy of the License at
+	 *
+	 * http://www.apache.org/licenses/LICENSE-2.0
+	 *
+	 * Unless required by applicable law or agreed to in writing, software
+	 * distributed under the License is distributed on an "AS IS" BASIS,
+	 * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+	 * See the License for the specific language governing permissions and
+	 * limitations under the License.
+	 *
+	 * @providesModule TouchEventUtils
+	 */
+
+	var TouchEventUtils = {
+	  /**
+	   * Utility function for common case of extracting out the primary touch from a
+	   * touch event.
+	   * - `touchEnd` events usually do not have the `touches` property.
+	   *   http://stackoverflow.com/questions/3666929/
+	   *   mobile-sarai-touchend-event-not-firing-when-last-touch-is-removed
+	   *
+	   * @param {Event} nativeEvent Native event that may or may not be a touch.
+	   * @return {TouchesObject?} an object with pageX and pageY or null.
+	   */
+	  extractSingleTouch: function(nativeEvent) {
+	    var touches = nativeEvent.touches;
+	    var changedTouches = nativeEvent.changedTouches;
+	    var hasTouches = touches && touches.length > 0;
+	    var hasChangedTouches = changedTouches && changedTouches.length > 0;
+
+	    return !hasTouches && hasChangedTouches ? changedTouches[0] :
+	           hasTouches ? touches[0] :
+	           nativeEvent;
+	  }
+	};
+
+	module.exports = TouchEventUtils;
+
+
+/***/ },
+/* 195 */
+/***/ function(module, exports) {
+
+	"use strict";
+
+	/**
+	 * Copyright (c) 2013-present, Facebook, Inc.
+	 * All rights reserved.
+	 *
+	 * This source code is licensed under the BSD-style license found in the
+	 * LICENSE file in the root directory of this source tree. An additional grant
+	 * of patent rights can be found in the PATENTS file in the same directory.
+	 *
+	 */
+
+	/**
+	 * Allows extraction of a minified key. Let's the build system minify keys
+	 * without losing the ability to dynamically use key strings as values
+	 * themselves. Pass in an object with a single key/val pair and it will return
+	 * you the string key of that single record. Suppose you want to grab the
+	 * value for a key 'className' inside of an object. Key/val minification may
+	 * have aliased that key to be 'xa12'. keyOf({className: null}) will return
+	 * 'xa12' in that case. Resolve keys you want to use once at startup time, then
+	 * reuse those resolutions.
+	 */
+	var keyOf = function keyOf(oneKeyObj) {
+	  var key;
+	  for (key in oneKeyObj) {
+	    if (!oneKeyObj.hasOwnProperty(key)) {
+	      continue;
+	    }
+	    return key;
+	  }
+	  return null;
+	};
+
+	module.exports = keyOf;
 
 /***/ }
 /******/ ]);

@@ -117,3 +117,14 @@
    left: 0;
    top: 0;
 }
+
+
+.lt-pos-a{
+  @include pos(a);
+}
+.lt-pos-r{
+  @include pos(r);
+}
+.lt-pos-f{
+  @include pos(f);
+}
