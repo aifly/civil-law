@@ -18,33 +18,33 @@ class SceneApp extends Component {
 				{
 					imgSrc:'./assets/images/q1.png',
 					questionTitle:'在妈妈肚子里的小明是否有接受赠与的权利？',
-					A:'这个真没有，只能给老妈',
-					B:'这个可以有',
+					A:'这个可以有',
+					B:'这个真没有，只能给老妈',
 					C:'不关心,反正不是我的',
-					right:1,
+					right:0,
 					style:{
 						fontSize:'.5rem',
 					},
 					background:'#ffe29e',
 					bottom:'2rem',
-					remark:'民法总则相关法条规定，涉及遗产继承、接受赠与等胎儿利益的保护，胎儿视为具有民事权利能力。'
+					remark:'民法总则草案相关法条规定，涉及遗产继承、接受赠与等胎儿利益的保护，胎儿视为具有民事权利能力。'
 				},{
 					imgSrc:'./assets/images/q2.png',
 					questionTitle:'调皮的小明偷偷用妈妈手机发出去1000元红包，妈妈能要回来吗？',
 					A:'必须滴，熊孩子发的红包不算数',
-					B:'想啥呢,发出去还能要回来',
-					C:'此处应该有红包',
-					right:1,
+					B:'此处应该有红包',
+					C:'想啥呢,发出去还能要回来',
+					right:2,
 					style:{
 						fontSize:'.5rem',
 					},
 					background:'#ffd1b2',
 					bottom:'.7rem',
-					remark:'民法总则相关法条规定，六周岁以上不满十八周岁的未成年人，为限制民事行为能力人，可以独立实施纯获利益的民事法律行为或者与其年龄、智力相适应的民事法律行为。'
+					remark:'民法总则草案相关法条规定，六周岁以上不满十八周岁的未成年人，为限制民事行为能力人，可以独立实施纯获利益的民事法律行为或者与其年龄、智力相适应的民事法律行为。'
 				},{
 					imgSrc:'./assets/images/q3.png',
 					questionTitle:'正上大一的小明“Ｑ”币被盗，他要去报警，会有人管吗？',
-					A:'“Ｑ”币被盗，你找“ＱＱ”',
+					A:'“Ｑ”币被盗，你找“ＱＱ”呀',
 					B:'来吧，警察叔叔为你撑腰',
 					C:'请先告诉我啥叫“Ｑ”币',
 					right:1,
@@ -53,11 +53,11 @@ class SceneApp extends Component {
 					},
 					background:'#ffc8c1',
 					bottom:'2rem',
-					remark:'民法总则相关法条规定，民事主体依法享有知识产权，同时列举了作品、专利、商标等９种客体，其中就包括数据信息。'
+					remark:'民法总则草案相关法条规定，民事主体依法享有知识产权，同时列举了作品、专利、商标等９种客体，其中就包括数据信息。'
 				},{
 					imgSrc:'./assets/images/q4.png',
-					questionTitle:'２３岁的小明面对突然跌倒的老人，在送往医院途中造成老人轻微损害，需要承担民事责任吗？',
-					A:'“承担，扶的时候你就该想到',
+					questionTitle:'23岁的小明面对突然跌倒的老人，在送往医院途中造成老人轻微损害，需要承担民事责任吗？',
+					A:'承担，扶的时候你就该想到',
 					B:'不承担，好人该有好报',
 					C:'不知道，我有点懵圈儿',
 					right:1,
@@ -66,27 +66,27 @@ class SceneApp extends Component {
 						fontSize:'.5rem',
 					},
 					background:'#94d1d7',
-					remark:'民法总则相关法条规定，实施紧急救助行为造成受助人损害的，除有重大过失外，救助人不承担民事责任。'
+					remark:'民法总则草案相关法条规定，实施紧急救助行为造成受助人损害的，除有重大过失外，救助人不承担民事责任。'
 				},{
 					imgSrc:'./assets/images/q5.png',
 					questionTitle:'已步入中年的小明想开一家敬老院，它能获得法人身份吗？',
 					A:'法人不是你想当，想当就能当',
-					B:'ＹＥＳ，ＯＦ　ＣＯＵＲＳＥ',
-					C:'申请求助场外观众',
-					right:1,
+					B:'申请求助场外观众',
+					C:'YES，OF COURSE',
+					right:2,
 					background:'#c5acee',
 					bottom:'.7rem',
 					style:{
 						fontSize:'.5rem',
 					},
-					remark:'民法总则相关法条规定，以取得利润并分配给其股东或者其他出资人等成员为目的成立的法人，为营利性法人。为公益目的或者其他非营利目的成立的法人，为非营利性法人。'
+					remark:'民法总则草案相关法条规定，以取得利润并分配给其股东或者其他出资人等成员为目的成立的法人，为营利性法人。为公益目的或者其他非营利目的成立的法人，为非营利性法人。'
 				},{
 					imgSrc:'./assets/images/q6.png',
 					questionTitle:'时光飞逝，小明已年逾九旬，失去独立生活能力，他能否成为被监护人？',
 					A:'最美不过夕阳红，老人就得有人管',
 					B:'不知道，祝老人家健康长寿',
 					C:'啥？被监护的不都是孩子吗',
-					right:1,	
+					right:0,	
 					background:"#9ab7d0",
 					bottom:'.8rem',
 					style:{
@@ -122,9 +122,9 @@ class SceneApp extends Component {
 											{item.questionTitle}
 									</div>
 									<ol className='lt-question-answer'>
-											<li className={this.state.A?'active':''} onTouchTap={this.answer.bind(this,0)}>A:<span>{item.A}</span></li>
-											<li className={this.state.B?'active':''} onTouchTap={this.answer.bind(this,1)}>B:<span>{item.B}</span></li>
-											<li className={this.state.C?'active':''} onTouchTap={this.answer.bind(this,2)}>C:<span>{item.C}</span></li>
+											<li className={this.state.A?'active':''} >A:<span onTouchTap={this.answer.bind(this,0)}>{item.A}</span></li>
+											<li className={this.state.B?'active':''} >B:<span onTouchTap={this.answer.bind(this,1)}>{item.B}</span></li>
+											<li className={this.state.C?'active':''} >C:<span onTouchTap={this.answer.bind(this,2)}>{item.C}</span></li>
 									</ol>									
 									<img src='./assets/images/minfa.png' className='lt-minfa'/>
 									{this.state.questionList.length-1 !== i && false && <span className='lt-info'>
@@ -282,7 +282,7 @@ class SceneApp extends Component {
 		obserable.on("indexShow",()=>{
 				this.setState({show:true});
 		});
-		var s=  this;
+		/*var s=  this;
 		swipe(s.refs['lt-question-list'],'up').fnUp = function(){
 			var iNow = s.state.iNow + 1;
 			if(s.state.iNow >= s.state.questionList.length -1){
@@ -300,7 +300,7 @@ class SceneApp extends Component {
 			s.setState({
 				iNow : iNow
 			});
-		}
+		}*/
 	}
 }
 export default PubCom(SceneApp);

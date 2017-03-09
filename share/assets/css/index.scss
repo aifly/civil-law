@@ -41,7 +41,7 @@ input, textarea {
 
   .lt-info{
     @include pos(a);
-    bottom: 1rem;
+    bottom: 0;
     left: 50%;
      -webkit-animation: ltshake 1.5s infinite ease;
     animation: ltshake 1.5s infinite ease;
@@ -90,7 +90,7 @@ input, textarea {
     opacity: 0;
   }
   to {
-    -webkit-transform: translateY(-25px);
+    -webkit-transform: translateY(-1  `Q5px);
     opacity: 1;
   }
 }

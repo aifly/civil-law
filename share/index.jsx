@@ -32,7 +32,7 @@ class ShareAPP extends Component {
 						{this.state.level>-1 && <img src={'./assets/images/level'+this.state.level+'.png'} className="lt-level" />}
 				</div>
 				<div className="lt-click-C">
-						<a href='#'>
+						<a href='https://xhpfmapi.zhongguowangshi.com/share/index.html?docid=1646107'>
 							<img src='./assets/images/light.gif'/>
 							<img src='./assets/images/click.png'/>
 						</a>
@@ -47,14 +47,16 @@ class ShareAPP extends Component {
 	componentDidMount() {
 		let {obserable } = this.props;
 		obserable.on('setScore',(score)=>{
+			setTimeout(()=>{
 				this.setState({level:score});
+			},400)
 		});
 		var s = this;
 		swipe(this.refs['lt-share-ui'],'up').fnUp = function(){
-				s.setState({showTeam:true})
+			s.setState({showTeam:true})
 		}
 		swipe(this.refs['lt-share-ui'],'down').fnDown = function(){
-				s.setState({showTeam:false})
+			s.setState({showTeam:false})
 		}
 	}
 }

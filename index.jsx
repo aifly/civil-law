@@ -63,7 +63,7 @@ export class App extends Component {
 		    	wx.ready(()=>{
 		    			 		//朋友圈
                     wx.onMenuShareTimeline({
-                        title: '猛戳“大民”，“点开”影响你一生的故事', // 分享标题
+                        title: '猛戳“大民”，“点开”影响您一生的故事', // 分享标题
                         link: durl, // 分享链接
                         imgUrl: "http://webapi.zmiti.com/public/civil-law/assets/images/300.jpg", // 分享图标
                         desc: "你是法学大师OR资深法盲？想知道的话，可以跟随“小总”，走完小明的一生。",
@@ -72,7 +72,7 @@ export class App extends Component {
                     });
                     //朋友
                     wx.onMenuShareAppMessage({
-                        title: "猛戳“大民”，“点开”影响你一生的故事", // 分享标题
+                        title: "猛戳“大民”，“点开”影响您一生的故事", // 分享标题
                         link: durl, // 分享链接
                         imgUrl: "http://webapi.zmiti.com/public/civil-law/assets/images/300.jpg", // 分享图标
                         type: "link",
@@ -83,7 +83,7 @@ export class App extends Component {
                     });
                     //qq
                     wx.onMenuShareQQ({
-                        title: "猛戳“大民”，“点开”影响你一生的故事", // 分享标题
+                        title: "猛戳“大民”，“点开”影响您一生的故事", // 分享标题
                         link: durl, // 分享链接
                         imgUrl: "http://webapi.zmiti.com/public/civil-law/assets/images/300.jpg", // 分享图标
                         desc: "猛戳“大民”，“点开”影响你一生的故事",

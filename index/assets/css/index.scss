@@ -32,13 +32,15 @@ input, textarea {
 }
 
 .lt-index-main-ui{
-
- 
+  
+  .lt-intri{
+    top:100%;
+  }
+ -webkit-transition:-webkit-transform .5s,opacity 1s;
   color:#fff;
   z-index: 10;
   &.hide{
-    -webkit-transition:-webkit-transform .5s,opacity 1s;
-    @include transform(translate3d(0,-100%,0) scale(.8));
+    @include transform(translate3d(0,-200%,0) scale(.8));
     opacity:0;
   }
   .lt-index-person{
@@ -57,7 +59,7 @@ input, textarea {
   .lt-index-title{
     width:6rem;
     left: 2rem;
-    top: 1rem;
+    top: 2rem;
     @include transform(translate3d(0,-1rem,0));
     opacity:0;
     @include transition(1s);
@@ -122,4 +124,11 @@ input, textarea {
   top: 6.5rem;
 }
 
+
+.lt-tip{
+  font-size: .4rem;
+  margin:.4rem auto;
+  text-align: center;
+  width:6rem;
+}
 
