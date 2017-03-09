@@ -20,23 +20,19 @@ class IndexApp extends Component {
 
 	render() {
 		var mainStyle = {
-			background:'#e5dcd0 url(./assets/images/index-bg.png) no-repeat center top',
+			background:'#e5dcd0 url(./assets/images/index-bg.jpg) no-repeat center bottom',
 			backgroundSize:'cover'
 		}
 		return (
 			<div className={'lt-index-main-ui lt-full '+(this.state.mainHide?'hide':'')} ref='lt-index-main-ui' style={mainStyle}>
-					<div className='lt-index-person lt-pos-a'>
-							<img src='./assets/images/person.png'/>
-					</div>
 					<div className={'lt-index-title lt-pos-a '+(this.state.titleShow?'active':'')}>
 							<img src='./assets/images/title.png'/>
 					</div>
-					<div className={'lt-index-book lt-pos-a ' + (this.state.bookShow?'active':'')}>
-							<img src='./assets/images/book.png'/>
-							<img className={'shadow lt-pos-a '+ (this.state.shadowShow?'active':'') } src='./assets/images/shadow.png'/>
+					<div className={'lt-person lt-pos-a '+ (this.state.bookShow?'active':'')}>
+							<img src='./assets/images/minfa.png'/>
 					</div>
-					<div className={'lt-index-tizi lt-pos-a '+ (this.state.tiziShow?'active':'')}>
-							<img src='./assets/images/tizi.png'/>
+					<div className={'lt-word lt-pos-a '+(this.state.tiziShow?'active':'')}>
+						<img src='./assets/images/word.png'/>
 					</div>
 					{this.state.tiziShow && <span className='lt-info'><img src='./assets/images/info.png'/></span>}
 			</div>
@@ -65,22 +61,19 @@ class IndexApp extends Component {
 						});
 				},1000);
 		 }).done(()=>{
-		 	 setTimeout(()=>{
-		 	 			s.setState({
-							shadowShow:true,
+		 	setTimeout(()=>{
+		　　　　s.setState({
 							tiziShow:true
 						});
-		 	 },3000)
+				},1500);
 		 })
-
 		 let {obserable} = this.props;
 		 swipe(this.refs['lt-index-main-ui'],'up').fnUp = function(){
 		 			s.setState({mainHide:true});
 		 			obserable.trigger({type:'indexShow'});
 		 }
 
-		 s.setState({mainHide:true});
-		 obserable.trigger({type:'indexShow'});
+		
 	}
 }
 export default PubCom(IndexApp);

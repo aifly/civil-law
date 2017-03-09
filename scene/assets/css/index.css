@@ -98,6 +98,7 @@ input, textarea {
         font-size: .45rem; }
       .lt-scene-ui > ul li .lt-question-answer {
         position: absolute;
+        z-index: 10;
         bottom: 1rem;
         left: 1rem; }
         .lt-scene-ui > ul li .lt-question-answer li {
@@ -105,6 +106,8 @@ input, textarea {
           font-size: .45rem;
           height: 1.3rem;
           line-height: 1.3rem; }
+          .lt-scene-ui > ul li .lt-question-answer li.active span {
+            border-color: #f00; }
           .lt-scene-ui > ul li .lt-question-answer li span {
             color: #000;
             background: #ccc;
@@ -112,6 +115,55 @@ input, textarea {
             border-radius: 7px;
             margin-left: .2rem;
             border: 2px dashed #fff; }
+  .lt-scene-ui .lt-result-C {
+    position: fixed;
+    -webkit-transform: translate3d(0, -100%, 0);
+    transform: translate3d(0, -100%, 0);
+    opacity: 0;
+    -webkit-transition: 0.4s;
+    transition: 0.4s;
+    background: rgba(0, 0, 0, 0.6);
+    left: 0;
+    top: 0; }
+    .lt-scene-ui .lt-result-C.active {
+      -webkit-transform: translate3d(0, 0, 0);
+      transform: translate3d(0, 0, 0);
+      opacity: 1; }
+    .lt-scene-ui .lt-result-C .lt-result {
+      position: absolute;
+      width: 8rem;
+      left: 1rem;
+      top: 3rem; }
+    .lt-scene-ui .lt-result-C .lt-result-right {
+      color: #f00;
+      position: absolute;
+      top: 2.5rem;
+      font-size: .5rem;
+      left: 1.5rem; }
+    .lt-scene-ui .lt-result-C .lt-result-remark {
+      position: absolute;
+      line-height: .7rem;
+      font-size: .5rem;
+      top: 3.5rem;
+      width: 5.5rem;
+      left: 1.5rem; }
+    .lt-scene-ui .lt-result-C .lt-next {
+      font-size: .6rem;
+      position: absolute;
+      left: 3rem;
+      background: #ffd34e;
+      color: #fff;
+      border: 2px solid #db9e36;
+      border-radius: 10px;
+      padding: 5px 30px;
+      text-align: center; }
+      .lt-scene-ui .lt-result-C .lt-next.active {
+        -webkit-transform: scale(0.95) translate3d(0, 3px, 0);
+        transform: scale(0.95) translate3d(0, 3px, 0);
+        -webkit-transition: -webkit-transform 0.1s;
+        transition: -webkit-transform 0.1s;
+        transition: transform 0.1s;
+        transition: transform 0.1s, -webkit-transform 0.1s; }
 
 @-webkit-keyframes ltshake {
   from {

@@ -1,36 +1,9 @@
-import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
-import SceneApp from './scene/index.jsx';
-import IndexApp from './index/index.jsx';
-import ShareAPP from './share/index.jsx';
-import Obserable from './assets/libs/obserable';
-var obserable = new Obserable();
-import $ from 'jquery';
+import $ from  'jquery';
 
-import injectTapEventPlugin from 'react-tap-event-plugin';
-injectTapEventPlugin();
-export class App extends Component {
-	constructor(props) {
-		super(props);
-		this.viewW = document.documentElement.clientWidth;
-		this.viewH = document.documentElement.clientHeight;
-	}
-	render() {
-		var data  ={
-			obserable
-		}
-		return (
-			<div>
-					<IndexApp {...data}></IndexApp>
-					<SceneApp {...data}></SceneApp>
-					<ShareAPP {...data}></ShareAPP>
-			</div>
-		);
-	}
+var levels = ['资深法盲','资深法盲','资深法盲','法学菜鸟','法学达人','法学大师','法学巨擘']
 
-	wxConfig(){
-			var levels = ['资深法盲','资深法盲','资深法盲','法学菜鸟','法学达人','法学大师','法学巨擘']
-		   var durl = location.href.split('#')[0]; //window.location;
+function wxConfig(){
+		  var durl = location.href.split('#')[0]; //window.location;
 		        var code_durl = encodeURIComponent(durl);
 			$.ajax({
 				url:'http://api.zmiti.com/weixin/jssdk.php',
@@ -63,7 +36,7 @@ export class App extends Component {
 		    	wx.ready(()=>{
 		    			 		//朋友圈
                     wx.onMenuShareTimeline({
-                        title: '猛戳“大民”，“点开”影响你一生的故事', // 分享标题
+                        title: "我是" + levels[score] +' 你呢？', // 分享标题
                         link: durl, // 分享链接
                         imgUrl: "http://webapi.zmiti.com/public/civil-law/assets/images/300.jpg", // 分享图标
                         desc: "你是法学大师OR资深法盲？想知道的话，可以跟随“小总”，走完小明的一生。",
@@ -72,7 +45,7 @@ export class App extends Component {
                     });
                     //朋友
                     wx.onMenuShareAppMessage({
-                        title: "猛戳“大民”，“点开”影响你一生的故事", // 分享标题
+                        title: "你是法学大师OR资深法盲？想知道的话，可以跟随“小总”，走完小明的一生。", // 分享标题
                         link: durl, // 分享链接
                         imgUrl: "http://webapi.zmiti.com/public/civil-law/assets/images/300.jpg", // 分享图标
                         type: "link",
@@ -96,12 +69,7 @@ export class App extends Component {
 		
 	}
 
-	componentWillMount() {
-		document.querySelector('html').style.fontSize = this.viewW / 10 +'px';
-		this.wxConfig();
+wxConfig();
 
-		
-	}
-}
-	ReactDOM.render(<App></App>,document.getElementById('fly-main-ui'));
+
 

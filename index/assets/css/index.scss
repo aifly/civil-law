@@ -32,6 +32,8 @@ input, textarea {
 }
 
 .lt-index-main-ui{
+
+ 
   color:#fff;
   z-index: 10;
   &.hide{
@@ -44,10 +46,18 @@ input, textarea {
      left: .5rem;
      top:.5rem;
   }
+  .lt-text{
+    font-size: .4rem;
+    color:#663333;
+    @include pos(a);
+    width:7rem;
+    left: 1.5rem;
+    top: 5rem;
+  }
   .lt-index-title{
-    width:8rem;
-    left: 1rem;
-    top: 3rem;
+    width:6rem;
+    left: 2rem;
+    top: 1rem;
     @include transform(translate3d(0,-1rem,0));
     opacity:0;
     @include transition(1s);
@@ -88,3 +98,28 @@ input, textarea {
     }
   }
 }
+
+.lt-person{
+  opacity:0;
+  &.active{
+    opacity:1;
+    @include transition(1s);
+  }
+  width:2.5rem;
+  top:8.5rem;
+  left: 2rem;
+}
+.lt-word{
+  opacity:0;
+  @include transform(translate3d(20%,0,0));
+  &.active{
+    opacity:1;
+    @include transform(translate3d(0,0,0));
+    @include transition(1s);
+  }
+  width:5rem;
+  right: 1rem;
+  top: 6.5rem;
+}
+
+

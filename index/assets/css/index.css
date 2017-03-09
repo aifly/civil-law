@@ -58,10 +58,17 @@ input, textarea {
     width: 4rem;
     left: .5rem;
     top: .5rem; }
+  .lt-index-main-ui .lt-text {
+    font-size: .4rem;
+    color: #663333;
+    position: absolute;
+    width: 7rem;
+    left: 1.5rem;
+    top: 5rem; }
   .lt-index-main-ui .lt-index-title {
-    width: 8rem;
-    left: 1rem;
-    top: 3rem;
+    width: 6rem;
+    left: 2rem;
+    top: 1rem;
     -webkit-transform: translate3d(0, -1rem, 0);
     transform: translate3d(0, -1rem, 0);
     opacity: 0;
@@ -100,5 +107,29 @@ input, textarea {
     transition: 2s; }
     .lt-index-main-ui .lt-index-tizi.active {
       opacity: 1; }
+
+.lt-person {
+  opacity: 0;
+  width: 2.5rem;
+  top: 8.5rem;
+  left: 2rem; }
+  .lt-person.active {
+    opacity: 1;
+    -webkit-transition: 1s;
+    transition: 1s; }
+
+.lt-word {
+  opacity: 0;
+  -webkit-transform: translate3d(20%, 0, 0);
+  transform: translate3d(20%, 0, 0);
+  width: 5rem;
+  right: 1rem;
+  top: 6.5rem; }
+  .lt-word.active {
+    opacity: 1;
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+    -webkit-transition: 1s;
+    transition: 1s; }
 
 /*# sourceMappingURL=index.css.map */

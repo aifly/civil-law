@@ -1,0 +1,69 @@
+@charset "UTF-8";
+/*.ant-btn:focus, .ant-btn:hover,.ant-input:focus, .ant-input:hover {
+    background-color: #fff;
+    border-color: #bf1616;
+    box-shadow: 0 0 0 2px rgba(191, 22, 22, 0.1);
+}*/
+.lt-full {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0; }
+
+.lt-pos-a {
+  position: absolute; }
+
+.lt-pos-r {
+  position: relative; }
+
+.lt-pos-f {
+  position: fixed; }
+
+html, body, div, p, ul, li, ol, dl, dt, dd, header, footer, video, h1, h2, h3, h4, canvas, section, figure {
+  padding: 0;
+  margin: 0; }
+
+a {
+  text-decoration: none; }
+
+li {
+  list-style: none; }
+
+html, body {
+  height: 100%; }
+
+body {
+  font-family: "Helvetica Neue", 'Helvetica', "Microsoft YaHei", '微软雅黑', arial, sans-serif;
+  overflow-x: hidden; }
+
+img {
+  border: none;
+  vertical-align: middle;
+  width: 100%;
+  height: auto; }
+
+input, textarea {
+  outline: none; }
+
+.lt-level {
+  width: 7rem;
+  margin: .5rem auto;
+  display: block; }
+
+.lt-click-C {
+  position: absolute;
+  left: 2rem;
+  height: 5rem;
+  bottom: 0;
+  z-index: 10;
+  width: 6rem; }
+  .lt-click-C img {
+    position: absolute; }
+    .lt-click-C img:last-of-type {
+      width: 74%;
+      left: 20%;
+      z-index: 1;
+      bottom: 10%; }
+
+/*# sourceMappingURL=share.css.map */

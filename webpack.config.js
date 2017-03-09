@@ -2,6 +2,7 @@ var webpack = require('webpack');
 var config = {
     entry: {
         'index': "./index.jsx",
+        'share': "./share.jsx",
     },
     output: {
         //publicPath: './static/js',

@@ -84,9 +84,15 @@ input, textarea {
 
         .lt-question-answer{
             @include pos(a);
+            z-index: 10;
             bottom: 1rem;
            li{
             color:#fff;
+            &.active{
+              span{
+                border-color:#f00;
+              }
+            }
             span{
               color:#000;
               background: #ccc;
@@ -101,6 +107,56 @@ input, textarea {
            }
            left: 1rem;
         }
+    }
+  }
+
+  .lt-result-C{
+    @include pos(f);
+    @include transform(translate3d(0,-100%,0));
+    opacity:0;
+    @include transition(.4s);
+    &.active{
+      @include transform(translate3d(0,0,0));
+      opacity:1;
+    }
+    background: rgba(0,0,0,.6);
+    left: 0;
+    top: 0;
+    .lt-result{
+      @include pos(a);
+      width: 8rem;
+      left: 1rem;
+      top:3rem; 
+    }
+    .lt-result-right{
+       color:#f00;
+       @include pos(a);
+       top: 2.5rem;
+       font-size: .5rem;
+       left: 1.5rem;
+    }
+    .lt-result-remark{
+      @include pos(a);
+      line-height: .7rem;
+      font-size: .5rem;
+      top: 3.5rem;
+      width: 5.5rem;
+      left: 1.5rem;
+    }
+    .lt-next{
+      font-size: .6rem;
+      @include pos(a);
+      left: 3rem;
+      background: #ffd34e;
+      color:#fff;
+      border:2px solid #db9e36;
+      @include br(10px);
+      padding:5px 30px;
+      text-align: center;
+      &.active{
+        @include transform(scale(.95) translate3d(0,3px,0));
+        @include transition_transform(.1s);
+      }
     }
   }
 
