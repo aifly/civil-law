@@ -20,12 +20,12 @@ class SceneApp extends Component {
 					questionTitle:'在妈妈肚子里的小明是否有接受赠与的权利？',
 					A:'这个可以有',
 					B:'这个真没有，只能给老妈',
-					C:'不关心,反正不是我的',
+					C:'不关心，反正不是我的',
 					right:0,
 					style:{
 						fontSize:'.5rem',
 					},
-					background:'#ffe29e',
+					background:'#f9c2ff',
 					bottom:'2rem',
 					remark:'民法总则草案相关法条规定，涉及遗产继承、接受赠与等胎儿利益的保护，胎儿视为具有民事权利能力。'
 				},{
@@ -33,7 +33,7 @@ class SceneApp extends Component {
 					questionTitle:'调皮的小明偷偷用妈妈手机发出去1000元红包，妈妈能要回来吗？',
 					A:'必须滴，熊孩子发的红包不算数',
 					B:'此处应该有红包',
-					C:'想啥呢,发出去还能要回来',
+					C:'想啥呢，发出去还能要回来',
 					right:2,
 					style:{
 						fontSize:'.5rem',
@@ -69,10 +69,10 @@ class SceneApp extends Component {
 					remark:'民法总则草案相关法条规定，实施紧急救助行为造成受助人损害的，除有重大过失外，救助人不承担民事责任。'
 				},{
 					imgSrc:'./assets/images/q5.png',
-					questionTitle:'已步入中年的小明想开一家敬老院，它能获得法人身份吗？',
+					questionTitle:'已步入中年的小明想开一家敬老院，能获得法人身份吗？',
 					A:'法人不是你想当，想当就能当',
 					B:'申请求助场外观众',
-					C:'YES，OF COURSE',
+					C:'那必须的',
 					right:2,
 					background:'#c5acee',
 					bottom:'.7rem',
@@ -108,8 +108,8 @@ class SceneApp extends Component {
 	render() {
 		
 		var questionStyle = {
-			background:"url(./assets/images/q-bg.png) no-repeat center top",
-			backgroundSize:'contain'
+			/*background:"url(./assets/images/q-bg.png) no-repeat center top",
+			backgroundSize:'contain'*/
 		}
 		return (
 			<div  className={'lt-full lt-scene-ui ' + (this.state.show?'active':'')}>
@@ -122,9 +122,9 @@ class SceneApp extends Component {
 											{item.questionTitle}
 									</div>
 									<ol className='lt-question-answer'>
-											<li className={this.state.A?'active':''} ><span onTouchTap={this.answer.bind(this,0)}>A. {item.A}</span></li>
-											<li className={this.state.B?'active':''} ><span onTouchTap={this.answer.bind(this,1)}>B. {item.B}</span></li>
-											<li className={this.state.C?'active':''} ><span onTouchTap={this.answer.bind(this,2)}>C. {item.C}</span></li>
+											<li className={this.state.A?'active':''} ><span onTouchTap={this.answer.bind(this,0)}><b>A.</b> {item.A}</span></li>
+											<li className={this.state.B?'active':''} ><span onTouchTap={this.answer.bind(this,1)}><b>B.</b> {item.B}</span></li>
+											<li className={this.state.C?'active':''} ><span onTouchTap={this.answer.bind(this,2)}><b>C.</b> {item.C}</span></li>
 									</ol>									
 									<img src='./assets/images/minfa.png' className='lt-minfa'/>
 									{this.state.questionList.length-1 !== i && false && <span className='lt-info'>

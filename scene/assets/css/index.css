@@ -92,10 +92,11 @@ input, textarea {
         height: 4rem;
         left: 1.2rem;
         bottom: 3.2rem;
-        line-height: .72rem;
-        padding: .5rem .550rem;
+        line-height: .9rem;
+        padding: .5rem 0;
         box-sizing: border-box;
-        font-size: .45rem; }
+        font-size: .5rem;
+        color: #541d11; }
       .lt-scene-ui > ul li .lt-question-answer {
         position: absolute;
         z-index: 10;
@@ -111,13 +112,14 @@ input, textarea {
             transform: scale(0.95); }
           .lt-scene-ui > ul li .lt-question-answer li span {
             color: #000;
-            background: rgba(255, 255, 255, 0.7);
+            border-bottom: 1px dashed #fff;
             display: inline-block;
-            padding: 5px 10px;
-            border-radius: 7px;
+            padding: 5px 0;
             margin-left: .2rem;
             height: .6rem;
             line-height: .6rem; }
+            .lt-scene-ui > ul li .lt-question-answer li span b {
+              margin-right: 4px; }
   .lt-scene-ui .lt-result-C {
     position: fixed;
     -webkit-transform: translate3d(0, -100%, 0);
