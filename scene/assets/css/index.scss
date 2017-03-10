@@ -90,16 +90,19 @@ input, textarea {
             color:#fff;
             &.active{
               span{
-                border-color:#f00;
+                @include transform(scale(.95));
+
               }
             }
             span{
               color:#000;
-              background: #ccc;
+              background: rgba(255,255,255,.7);
+              display: inline-block;
               padding:5px 10px;
               @include br(7px);
               margin-left: .2rem;
-              border:2px dashed #fff;
+              height: .6rem;
+              line-height: .6rem;
             }
             font-size: .45rem;
             height: 1.3rem;

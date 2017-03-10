@@ -122,9 +122,9 @@ class SceneApp extends Component {
 											{item.questionTitle}
 									</div>
 									<ol className='lt-question-answer'>
-											<li className={this.state.A?'active':''} >A:<span onTouchTap={this.answer.bind(this,0)}>{item.A}</span></li>
-											<li className={this.state.B?'active':''} >B:<span onTouchTap={this.answer.bind(this,1)}>{item.B}</span></li>
-											<li className={this.state.C?'active':''} >C:<span onTouchTap={this.answer.bind(this,2)}>{item.C}</span></li>
+											<li className={this.state.A?'active':''} ><span onTouchTap={this.answer.bind(this,0)}>A. {item.A}</span></li>
+											<li className={this.state.B?'active':''} ><span onTouchTap={this.answer.bind(this,1)}>B. {item.B}</span></li>
+											<li className={this.state.C?'active':''} ><span onTouchTap={this.answer.bind(this,2)}>C. {item.C}</span></li>
 									</ol>									
 									<img src='./assets/images/minfa.png' className='lt-minfa'/>
 									{this.state.questionList.length-1 !== i && false && <span className='lt-info'>
