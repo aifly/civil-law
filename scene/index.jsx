@@ -22,6 +22,7 @@ class SceneApp extends Component {
 					B:'这个真没有，只能给老妈',
 					C:'不关心，反正不是我的',
 					right:0,
+
 					style:{
 						fontSize:'.5rem',
 					},
@@ -108,8 +109,8 @@ class SceneApp extends Component {
 	render() {
 		
 		var questionStyle = {
-			/*background:"url(./assets/images/q-bg.png) no-repeat center top",
-			backgroundSize:'contain'*/
+			background:"url(./assets/images/q-bg2.png) no-repeat center top",
+			backgroundSize:'contain'
 		}
 		return (
 			<div  className={'lt-full lt-scene-ui ' + (this.state.show?'active':'')}>
@@ -118,7 +119,7 @@ class SceneApp extends Component {
 						{this.state.questionList.map((item,i)=>{
 							return <li style={{height:this.viewH,background:item.background}} key={i}>
 									<img src={item.imgSrc}/>
-									<div className='lt-question-content' style={questionStyle}>
+									<div className='lt-question-content' style={{padding:i===3?'.3rem .55rem':'.5rem .55rem',background:'url(./assets/images/q-bg'+(i+1)+'.png) no-repeat center top',backgroundSize:'contain'}}>
 											{item.questionTitle}
 									</div>
 									<ol className='lt-question-answer'>
