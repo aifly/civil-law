@@ -39,9 +39,6 @@ class IndexApp extends Component {
 				<div className={'lt-person lt-pos-a '+ (this.state.bookShow?'active':'')}>
 						<img src='./assets/images/minfa.png'/>
 				</div>
-				<div className={'lt-word lt-pos-a '+(this.state.tiziShow?'active':'')}>
-					<img src='./assets/images/word.png'/>
-				</div>
 				{this.state.tiziShow && <span className='lt-info'><img src='./assets/images/info.png'/></span>}
 				<div ref='lt-intri' className='lt-intri lt-full' style={intriStyle}>
 					<span className='lt-info'><img src='./assets/images/info.png'/></span>

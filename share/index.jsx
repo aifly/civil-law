@@ -17,7 +17,7 @@ class ShareAPP extends Component {
 
 	render() {
 		var mainStyle = {
-				background:'url(./assets/images/share-bg.png) no-repeat  center center',
+				background:'url(./assets/images/share-bg.png) no-repeat  center bottom',
 				backgroundSize:'cover',
 				WebkitTransform:'translate3d(0,'+(this.state.showTeam?'-100%':0)+',0)'
 		}
@@ -31,6 +31,7 @@ class ShareAPP extends Component {
 				<div>
 						{this.state.level>-1 && <img src={'./assets/images/level'+this.state.level+'.png'} className="lt-level" />}
 				</div>
+				<div className='lt-chance'><img src='./assets/images/chance.png'/></div>
 				<div className="lt-click-C">
 						<a href='https://xhpfmapi.zhongguowangshi.com/share/index.html?docid=1646107'>
 							<img src='./assets/images/light.gif'/>
