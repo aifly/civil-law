@@ -63,30 +63,30 @@ export class App extends Component {
 		    	wx.ready(()=>{
 		    			 		//朋友圈
                     wx.onMenuShareTimeline({
-                        title: '猛戳“大民”，“点开”影响您一生的故事', // 分享标题
+                        title: '“点开”影响您一生的故事', // 分享标题
                         link: durl, // 分享链接
                         imgUrl: "http://webapi.zmiti.com/public/civil-law/assets/images/300.jpg", // 分享图标
-                        desc: "你是法学大师OR资深法盲？想知道的话，可以跟随“小总”，走完小明的一生。",
+                        desc: "想知道自己是“法学大师”还是“法盲”吗？快来点开我吧",
                         success: function () { },
                         cancel: function () { }
                     });
                     //朋友
                     wx.onMenuShareAppMessage({
-                        title: "猛戳“大民”，“点开”影响您一生的故事", // 分享标题
+                        title: "“点开”影响您一生的故事", // 分享标题
                         link: durl, // 分享链接
                         imgUrl: "http://webapi.zmiti.com/public/civil-law/assets/images/300.jpg", // 分享图标
                         type: "link",
                         dataUrl: "",
-                        desc: "你是法学大师OR资深法盲？想知道的话，可以跟随“小总”，走完小明的一生。",
+                        desc: "想知道自己是“法学大师”还是“法盲”吗？快来点开我吧",
                         success: function () { },
                         cancel: function () { }
                     });
                     //qq
                     wx.onMenuShareQQ({
-                        title: "猛戳“大民”，“点开”影响您一生的故事", // 分享标题
+                        title: "“点开”影响您一生的故事", // 分享标题
                         link: durl, // 分享链接
                         imgUrl: "http://webapi.zmiti.com/public/civil-law/assets/images/300.jpg", // 分享图标
-                        desc: "猛戳“大民”，“点开”影响你一生的故事",
+                        desc: "想知道自己是“法学大师”还是“法盲”吗？快来点开我吧",
                         success: function () { },
                         cancel: function () { }
                     });
