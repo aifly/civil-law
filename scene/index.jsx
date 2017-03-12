@@ -220,7 +220,7 @@ class SceneApp extends Component {
                         title: "我是" + levels[score] +' 你呢？', // 分享标题
                         link: durl, // 分享链接
                         imgUrl: "http://webapi.zmiti.com/public/civil-law/assets/images/300.jpg", // 分享图标
-                        desc: "你是法学大师OR资深法盲？想知道的话，可以跟随“小总”，走完小明的一生。",
+                        desc: "想知道自己是“法学大师”还是“法盲”吗？快来点开我吧",
                         success: function () { },
                         cancel: function () { }
                     });
@@ -231,7 +231,7 @@ class SceneApp extends Component {
                         imgUrl: "http://webapi.zmiti.com/public/civil-law/assets/images/300.jpg", // 分享图标
                         type: "link",
                         dataUrl: "",
-                        desc: "你是法学大师OR资深法盲？想知道的话，可以跟随“小总”，走完小明的一生。",
+                        desc: "想知道自己是“法学大师”还是“法盲”吗？快来点开我吧",
                         success: function () { },
                         cancel: function () { }
                     });
@@ -240,7 +240,7 @@ class SceneApp extends Component {
                          title: "我是" + levels[score] +' 你呢？', // 分享标题
                         link: durl, // 分享链接
                         imgUrl: "http://webapi.zmiti.com/public/civil-law/assets/images/300.jpg", // 分享图标
-                        desc: "你是法学大师OR资深法盲？想知道的话，可以跟随“小总”，走完小明的一生。",
+                        desc: "想知道自己是“法学大师”还是“法盲”吗？快来点开我吧",
                         success: function () { },
                         cancel: function () { }
                     });
