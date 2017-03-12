@@ -1,12 +1,17 @@
 <!DOCTYPE html>
 <html style="font-size: 32px;">
 <head>
-	<title>你是法学大师OR资深法盲？想知道的话，可以跟随“小总”，走完小明的一生。</title>
+	<title>想知道自己是“法学大师”还是“法盲”吗？快来点开我吧</title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
 	<script>
 		 document.getElementsByTagName('html')[0].style.fontSize = document.documentElement.clientWidth/ 10+'px';
-		 document.addEventListener('touchmove',function(e){e.preventDefault();},false)
+		 document.addEventListener('touchmove',function(e){e.preventDefault();},false);
+         document.addEventListener('touchstart',function(e){
+            if(e.target.nodeName !== "A"){
+                e.preventDefault();
+            }
+         })
 	</script>
     <style type="text/css">
 

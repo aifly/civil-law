@@ -22,7 +22,7 @@ class ShareAPP extends Component {
 				WebkitTransform:'translate3d(0,'+(this.state.showTeam?'-100%':0)+',0)'
 		}
 		var teamStyle = {
-				background:'url(./assets/images/team.jpg) no-repeat  center bottom',
+				background:'url(./assets/images/team.jpg) no-repeat  center center',
 				backgroundSize:'cover',
 			
 		}
@@ -33,7 +33,7 @@ class ShareAPP extends Component {
 				</div>
 				<div className='lt-chance'><img src='./assets/images/chance.png'/></div>
 				<div className="lt-click-C">
-						<a href='https://xhpfmapi.zhongguowangshi.com/share/index.html?docid=1646107'>
+						<a onTouchStart={()=>{location.href='http://xhpfmapi.zhongguowangshi.com/share/index.html?docid=1651597&channel=weixin&from=singlemessage&isappinstalled=1'}} href='http://xhpfmapi.zhongguowangshi.com/share/index.html?docid=1651597&channel=weixin&from=singlemessage&isappinstalled=1'>
 							<img src='./assets/images/light.gif'/>
 							<img src='./assets/images/click.png'/>
 						</a>
