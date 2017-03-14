@@ -34,8 +34,7 @@ class ShareAPP extends Component {
 			{/*	<div className='lt-chance'><img src='./assets/images/chance.png'/></div>*/}
 				<div className="lt-click-C">
 						<a href='javascript:void(0)'>
-							<img src='./assets/images/light.gif'/>
-							<img src='./assets/images/click.png'/>
+							<img src='./assets/images/minfa.png'/>
 						</a>
 						<span className='lt-info'><img src='./assets/images/info.png' /></span>
 				</div>
