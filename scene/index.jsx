@@ -28,10 +28,10 @@ class SceneApp extends Component {
 					},
 					background:'#f9c2ff',
 					bottom:'2rem',
-					remark:'民法总则草案相关法条规定，涉及遗产继承、接受赠与等胎儿利益的保护，胎儿视为具有民事权利能力。'
+					remark:'民法总则相关法条规定，涉及遗产继承、接受赠与等胎儿利益的保护，胎儿视为具有民事权利能力。'
 				},{
 					imgSrc:'./assets/images/q2.png',
-					questionTitle:'调皮的小明偷偷用妈妈手机发出去1000元红包，妈妈能要回来吗？',
+					questionTitle:'8岁的小明很调皮，偷偷用妈妈手机发出去1000元红包，妈妈能要回来吗？',
 					A:'必须滴，熊孩子发的红包不算数',
 					B:'此处应该有红包',
 					C:'想啥呢，发出去还能要回来',
@@ -41,7 +41,7 @@ class SceneApp extends Component {
 					},
 					background:'#ffd1b2',
 					bottom:'.7rem',
-					remark:'民法总则草案相关法条规定，六周岁以上不满十八周岁的未成年人，为限制民事行为能力人，可以独立实施纯获利益的民事法律行为或者与其年龄、智力相适应的民事法律行为。'
+					remark:'按照民法总则相关法条规定，在现阶段将限制民事行为能力人年龄的下限修改为八周岁'
 				},{
 					imgSrc:'./assets/images/q3.png',
 					questionTitle:'正上大一的小明“Ｑ”币被盗，他要去报警，会有人管吗？',
@@ -54,7 +54,7 @@ class SceneApp extends Component {
 					},
 					background:'#ffc8c1',
 					bottom:'2rem',
-					remark:'民法总则草案相关法条规定，民事主体依法享有知识产权，同时列举了作品、专利、商标等９种客体，其中就包括数据信息。'
+					remark:'民法总则相关法条规定，民事主体依法享有知识产权，同时列举了作品、专利、商标等９种客体，其中就包括数据信息。'
 				},{
 					imgSrc:'./assets/images/q4.png',
 					questionTitle:'23岁的小明面对突然跌倒的老人，在送往医院途中造成老人轻微损害，需要承担民事责任吗？',
@@ -67,7 +67,7 @@ class SceneApp extends Component {
 						fontSize:'.5rem',
 					},
 					background:'#94d1d7',
-					remark:'民法总则草案相关法条规定，实施紧急救助行为造成受助人损害的，除有重大过失外，救助人不承担民事责任。'
+					remark:'民法总则相关法条规定，实施紧急救助行为造成受助人损害的，除有重大过失外，救助人不承担民事责任。'
 				},{
 					imgSrc:'./assets/images/q5.png',
 					questionTitle:'已步入中年的小明想开一家敬老院，能获得法人身份吗？',
@@ -80,7 +80,7 @@ class SceneApp extends Component {
 					style:{
 						fontSize:'.5rem',
 					},
-					remark:'民法总则草案相关法条规定，以取得利润并分配给其股东或者其他出资人等成员为目的成立的法人，为营利性法人。为公益目的或者其他非营利目的成立的法人，为非营利性法人。'
+					remark:'民法总则相关法条规定，以取得利润并分配给其股东或者其他出资人等成员为目的成立的法人，为营利性法人。为公益目的或者其他非营利目的成立的法人，为非营利性法人。'
 				},{
 					imgSrc:'./assets/images/q6.png',
 					questionTitle:'时光飞逝，小明已年逾九旬，失去独立生活能力，他能否成为被监护人？',
