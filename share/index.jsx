@@ -31,11 +31,10 @@ class ShareAPP extends Component {
 				<div>
 						{this.state.level>-1 && <img src={'./assets/images/level'+this.state.level+'.png'} className="lt-level" />}
 				</div>
-				<div className='lt-chance'><img src='./assets/images/chance.png'/></div>
+			{/*	<div className='lt-chance'><img src='./assets/images/chance.png'/></div>*/}
 				<div className="lt-click-C">
-						<a onTouchStart={()=>{location.href='http://xhpfmapi.zhongguowangshi.com/share/index.html?docid=1651597&channel=weixin&from=singlemessage&isappinstalled=1'}} href='http://xhpfmapi.zhongguowangshi.com/share/index.html?docid=1651597&channel=weixin&from=singlemessage&isappinstalled=1'>
-							<img src='./assets/images/light.gif'/>
-							<img src='./assets/images/click.png'/>
+						<a href='javascript:void(0)'>
+							<img src='./assets/images/minfa.png'/>
 						</a>
 						<span className='lt-info'><img src='./assets/images/info.png' /></span>
 				</div>

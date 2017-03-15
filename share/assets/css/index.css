@@ -82,13 +82,12 @@ input, textarea {
   bottom: 0;
   z-index: 10;
   width: 6rem; }
-  .lt-click-C img {
-    position: absolute; }
-    .lt-click-C img:last-of-type {
-      width: 74%;
-      left: 20%;
-      z-index: 1;
-      bottom: 10%; }
+  .lt-click-C a > img {
+    position: absolute;
+    width: 4rem;
+    left: 1rem;
+    z-index: 1;
+    bottom: 1rem; }
 
 .lt-team {
   top: 100%; }
