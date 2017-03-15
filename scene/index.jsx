@@ -28,7 +28,7 @@ class SceneApp extends Component {
 					},
 					background:'#f9c2ff',
 					bottom:'2rem',
-					remark:'民法总则相关法条规定，涉及遗产继承、接受赠与等胎儿利益的保护，胎儿视为具有民事权利能力。'
+					remark:'民法总则相关法条规定，涉及遗产继承、接受赠与等胎儿利益保护的，胎儿视为具有民事权利能力。'
 				},{
 					imgSrc:'./assets/images/q2.png',
 					questionTitle:'8岁的小明很调皮，偷偷用妈妈手机发出去1000元红包，妈妈能要回来吗？',
@@ -40,8 +40,8 @@ class SceneApp extends Component {
 						fontSize:'.5rem',
 					},
 					background:'#ffd1b2',
-					bottom:'.7rem',
-					remark:'按照民法总则相关法条规定，在现阶段将限制民事行为能力人年龄的下限修改为八周岁'
+					bottom:'2rem',
+					remark:'按照民法总则相关法条规定，限制民事行为能力人年龄的下限为八周岁'
 				},{
 					imgSrc:'./assets/images/q3.png',
 					questionTitle:'正上大一的小明“Ｑ”币被盗，他要去报警，会有人管吗？',
@@ -54,7 +54,7 @@ class SceneApp extends Component {
 					},
 					background:'#ffc8c1',
 					bottom:'2rem',
-					remark:'民法总则相关法条规定，民事主体依法享有知识产权，同时列举了作品、专利、商标等９种客体，其中就包括数据信息。'
+					remark:'民法总则相关法条规定，法律对数据、网络虚拟财产的保护有规定的，依照其规定。'
 				},{
 					imgSrc:'./assets/images/q4.png',
 					questionTitle:'23岁的小明面对突然跌倒的老人，在送往医院途中造成老人轻微损害，需要承担民事责任吗？',
@@ -67,7 +67,7 @@ class SceneApp extends Component {
 						fontSize:'.5rem',
 					},
 					background:'#94d1d7',
-					remark:'民法总则相关法条规定，实施紧急救助行为造成受助人损害的，除有重大过失外，救助人不承担民事责任。'
+					remark:'民法总则相关法条规定，因自愿实施紧急救助行为造成受助人损害的，救助人不承担民事责任。'
 				},{
 					imgSrc:'./assets/images/q5.png',
 					questionTitle:'已步入中年的小明想开一家敬老院，能获得法人身份吗？',
@@ -80,7 +80,7 @@ class SceneApp extends Component {
 					style:{
 						fontSize:'.5rem',
 					},
-					remark:'民法总则相关法条规定，以取得利润并分配给其股东或者其他出资人等成员为目的成立的法人，为营利性法人。为公益目的或者其他非营利目的成立的法人，为非营利性法人。'
+					remark:'民法总则相关法条规定，以取得利润并分配给股东等出资人为目的成立的法人，为营利法人。为公益目的或者其他非营利目的成立，不向出资人、设立人或者会员分配所取得利润的法人，为非营利法人。'
 				},{
 					imgSrc:'./assets/images/q6.png',
 					questionTitle:'时光飞逝，小明已年逾九旬，失去独立生活能力，他能否成为被监护人？',
@@ -96,7 +96,7 @@ class SceneApp extends Component {
 						left:'1rem',
 						lineHeight:'.6rem'
 					},
-					remark:'无民事行为能力或者限制民事行为能力的成年人，由下列有监护能力的人按顺序担任监护人：（一）   配偶；（二）   父母、子女；（三）   其他近亲属；（四）   其他愿意担任监护人的个人或者有关组织，但是须经被监护人住所地的居民委员会、村民委员会或者民政部门同意。'
+					remark:'无民事行为能力或者限制民事行为能力的成年人，由下列有监护能力的人按顺序担任监护人：（一）   配偶；（二）   父母、子女；（三）   其他近亲属；（四）   其他愿意担任监护人的个人或者组织，但是须经被监护人住所地的居民委员会、村民委员会或者民政部门同意。'
 				}
 			]
 		};
