@@ -220,7 +220,7 @@ class SceneApp extends Component {
                         title: "我是" + levels[score] +' 你呢？', // 分享标题
                         link: durl, // 分享链接
                         imgUrl: "http://webapi.zmiti.com/public/civil-law/assets/images/300.jpg", // 分享图标
-                        desc: "“大师”OR“法盲” 戳戳看",
+                        desc: "“大师”OR“法盲”戳戳看",
                         success: function () { },
                         cancel: function () { }
                     });
@@ -231,7 +231,7 @@ class SceneApp extends Component {
                         imgUrl: "http://webapi.zmiti.com/public/civil-law/assets/images/300.jpg", // 分享图标
                         type: "link",
                         dataUrl: "",
-                        desc: "“大师”OR“法盲” 戳戳看",
+                        desc: "“大师”OR“法盲”戳戳看",
                         success: function () { },
                         cancel: function () { }
                     });
@@ -240,7 +240,7 @@ class SceneApp extends Component {
                          title: "我是" + levels[score] +' 你呢？', // 分享标题
                         link: durl, // 分享链接
                         imgUrl: "http://webapi.zmiti.com/public/civil-law/assets/images/300.jpg", // 分享图标
-                        desc: "“大师”OR“法盲” 戳戳看",
+                        desc: "“大师”OR“法盲”戳戳看",
                         success: function () { },
                         cancel: function () { }
                     });
