@@ -66,7 +66,7 @@ export class App extends Component {
                         title: '“点开”影响您一生的故事', // 分享标题
                         link: durl, // 分享链接
                         imgUrl: "http://webapi.zmiti.com/public/civil-law/assets/images/300.jpg", // 分享图标
-                        desc: "想知道自己是“法学大师”还是“法盲”吗？快来点开我吧",
+                        desc: "“大师”OR“法盲”戳戳看",
                         success: function () { },
                         cancel: function () { }
                     });
@@ -77,7 +77,7 @@ export class App extends Component {
                         imgUrl: "http://webapi.zmiti.com/public/civil-law/assets/images/300.jpg", // 分享图标
                         type: "link",
                         dataUrl: "",
-                        desc: "想知道自己是“法学大师”还是“法盲”吗？快来点开我吧",
+                        desc: "“大师”OR“法盲”戳戳看",
                         success: function () { },
                         cancel: function () { }
                     });
@@ -86,7 +86,7 @@ export class App extends Component {
                         title: "“点开”影响您一生的故事", // 分享标题
                         link: durl, // 分享链接
                         imgUrl: "http://webapi.zmiti.com/public/civil-law/assets/images/300.jpg", // 分享图标
-                        desc: "想知道自己是“法学大师”还是“法盲”吗？快来点开我吧",
+                        desc: "“大师”OR“法盲”戳戳看",
                         success: function () { },
                         cancel: function () { }
                     });

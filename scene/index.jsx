@@ -70,7 +70,7 @@ class SceneApp extends Component {
 					remark:'民法总则相关法条规定，因自愿实施紧急救助行为造成受助人损害的，救助人不承担民事责任。'
 				},{
 					imgSrc:'./assets/images/q5.png',
-					questionTitle:'已步入中年的小明想开一家敬老院，能获得法人身份吗？',
+					questionTitle:'这家养老院能获得法人资格吗？',
 					A:'法人不是你想当，想当就能当',
 					B:'申请求助场外观众',
 					C:'那必须的',
@@ -220,7 +220,7 @@ class SceneApp extends Component {
                         title: "我是" + levels[score] +' 你呢？', // 分享标题
                         link: durl, // 分享链接
                         imgUrl: "http://webapi.zmiti.com/public/civil-law/assets/images/300.jpg", // 分享图标
-                        desc: "想知道自己是“法学大师”还是“法盲”吗？快来点开我吧",
+                        desc: "“大师”OR“法盲” 戳戳看",
                         success: function () { },
                         cancel: function () { }
                     });
@@ -231,7 +231,7 @@ class SceneApp extends Component {
                         imgUrl: "http://webapi.zmiti.com/public/civil-law/assets/images/300.jpg", // 分享图标
                         type: "link",
                         dataUrl: "",
-                        desc: "想知道自己是“法学大师”还是“法盲”吗？快来点开我吧",
+                        desc: "“大师”OR“法盲” 戳戳看",
                         success: function () { },
                         cancel: function () { }
                     });
@@ -240,7 +240,7 @@ class SceneApp extends Component {
                          title: "我是" + levels[score] +' 你呢？', // 分享标题
                         link: durl, // 分享链接
                         imgUrl: "http://webapi.zmiti.com/public/civil-law/assets/images/300.jpg", // 分享图标
-                        desc: "想知道自己是“法学大师”还是“法盲”吗？快来点开我吧",
+                        desc: "“大师”OR“法盲” 戳戳看",
                         success: function () { },
                         cancel: function () { }
                     });
