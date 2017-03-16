@@ -27,8 +27,8 @@ class SceneApp extends Component {
 						fontSize:'.5rem',
 					},
 					background:'#f9c2ff',
-					bottom:'2rem',
-					remark:'民法总则相关法条规定，涉及遗产继承、接受赠与等胎儿利益保护的，胎儿视为具有民事权利能力。'
+					bottom:'1.5rem',
+					remark:'涉及遗产继承、接受赠与等胎儿利益保护的，胎儿视为具有民事权利能力。但是胎儿娩出时为死体的，其民事权利能力自始不存在。'
 				},{
 					imgSrc:'./assets/images/q2.png',
 					questionTitle:'8岁的小明很调皮，偷偷用妈妈手机发出去1000元红包，妈妈能要回来吗？',
@@ -40,8 +40,8 @@ class SceneApp extends Component {
 						fontSize:'.5rem',
 					},
 					background:'#ffd1b2',
-					bottom:'2rem',
-					remark:'按照民法总则相关法条规定，限制民事行为能力人年龄的下限为八周岁'
+					bottom:'1.5rem',
+					remark:'八周岁以上的未成年人为限制民事行为能力人，可以独立实施纯获利益的民事法律行为或者与其年龄、智力相适应的民事法律行为。'
 				},{
 					imgSrc:'./assets/images/q3.png',
 					questionTitle:'正上大一的小明“Ｑ”币被盗，他要去报警，会有人管吗？',
@@ -217,30 +217,30 @@ class SceneApp extends Component {
 		    	wx.ready(()=>{
 		    			 		//朋友圈
                     wx.onMenuShareTimeline({
-                        title: "我是" + levels[score] +' 你呢？', // 分享标题
+                        title: "我是" + levels[score] +' 您呢？', // 分享标题
                         link: durl, // 分享链接
                         imgUrl: "http://webapi.zmiti.com/public/civil-law/assets/images/300.jpg", // 分享图标
-                        desc: "“大师”OR“法盲”戳戳看",
+                        desc: "对民法总则你了解多少？来测一测吧",
                         success: function () { },
                         cancel: function () { }
                     });
                     //朋友
                     wx.onMenuShareAppMessage({
-                        title: "我是" + levels[score] +' 你呢？', // 分享标题
+                        title: "我是" + levels[score] +' 您呢？', // 分享标题
                         link: durl, // 分享链接
                         imgUrl: "http://webapi.zmiti.com/public/civil-law/assets/images/300.jpg", // 分享图标
                         type: "link",
                         dataUrl: "",
-                        desc: "“大师”OR“法盲”戳戳看",
+                        desc: "对民法总则你了解多少？来测一测吧",
                         success: function () { },
                         cancel: function () { }
                     });
                     //qq
                     wx.onMenuShareQQ({
-                         title: "我是" + levels[score] +' 你呢？', // 分享标题
+                         title: "我是" + levels[score] +' 您呢？', // 分享标题
                         link: durl, // 分享链接
                         imgUrl: "http://webapi.zmiti.com/public/civil-law/assets/images/300.jpg", // 分享图标
-                        desc: "“大师”OR“法盲”戳戳看",
+                        desc: "对民法总则你了解多少？来测一测吧",
                         success: function () { },
                         cancel: function () { }
                     });

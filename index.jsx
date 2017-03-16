@@ -63,30 +63,30 @@ export class App extends Component {
 		    	wx.ready(()=>{
 		    			 		//朋友圈
                     wx.onMenuShareTimeline({
-                        title: '“点开”影响您一生的故事', // 分享标题
+                        title: '点开影响您一生的故事', // 分享标题
                         link: durl, // 分享链接
                         imgUrl: "http://webapi.zmiti.com/public/civil-law/assets/images/300.jpg", // 分享图标
-                        desc: "“大师”OR“法盲”戳戳看",
+                        desc: "对民法总则你了解多少？来测一测吧",
                         success: function () { },
                         cancel: function () { }
                     });
                     //朋友
                     wx.onMenuShareAppMessage({
-                        title: "“点开”影响您一生的故事", // 分享标题
+                        title: "点开影响您一生的故事", // 分享标题
                         link: durl, // 分享链接
                         imgUrl: "http://webapi.zmiti.com/public/civil-law/assets/images/300.jpg", // 分享图标
                         type: "link",
                         dataUrl: "",
-                        desc: "“大师”OR“法盲”戳戳看",
+                        desc: "对民法总则你了解多少？来测一测吧",
                         success: function () { },
                         cancel: function () { }
                     });
                     //qq
                     wx.onMenuShareQQ({
-                        title: "“点开”影响您一生的故事", // 分享标题
+                        title: "点开影响您一生的故事", // 分享标题
                         link: durl, // 分享链接
                         imgUrl: "http://webapi.zmiti.com/public/civil-law/assets/images/300.jpg", // 分享图标
-                        desc: "“大师”OR“法盲”戳戳看",
+                        desc: "对民法总则你了解多少？来测一测吧",
                         success: function () { },
                         cancel: function () { }
                     });
