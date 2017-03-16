@@ -182,7 +182,7 @@ class SceneApp extends Component {
 	}
 
 	wxConfig(score){
-			var levels = ['资深法盲','资深法盲','资深法盲','法学菜鸟','法学达人','法学大师','法学巨擘']
+			var levels = ['资深菜鸟','资深菜鸟','菜鸟','菜鸟','达人','达人','资深达人'];
 		   var durl = location.href.split('#')[0]; //window.location;
 		        var code_durl = encodeURIComponent(durl);
 		        var s = this;
@@ -217,7 +217,7 @@ class SceneApp extends Component {
 		    	wx.ready(()=>{
 		    			 		//朋友圈
                     wx.onMenuShareTimeline({
-                        title: "我是" + levels[score] +' 您呢？', // 分享标题
+                        title: "我是" + levels[score] +'，您呢？', // 分享标题
                         link: durl, // 分享链接
                         imgUrl: "http://webapi.zmiti.com/public/civil-law/assets/images/300.jpg", // 分享图标
                         desc: "对民法总则你了解多少？来测一测吧",
@@ -226,7 +226,7 @@ class SceneApp extends Component {
                     });
                     //朋友
                     wx.onMenuShareAppMessage({
-                        title: "我是" + levels[score] +' 您呢？', // 分享标题
+                        title: "我是" + levels[score] +'，您呢？', // 分享标题
                         link: durl, // 分享链接
                         imgUrl: "http://webapi.zmiti.com/public/civil-law/assets/images/300.jpg", // 分享图标
                         type: "link",
@@ -237,7 +237,7 @@ class SceneApp extends Component {
                     });
                     //qq
                     wx.onMenuShareQQ({
-                         title: "我是" + levels[score] +' 您呢？', // 分享标题
+                         title: "我是" + levels[score] +'，您呢？', // 分享标题
                         link: durl, // 分享链接
                         imgUrl: "http://webapi.zmiti.com/public/civil-law/assets/images/300.jpg", // 分享图标
                         desc: "对民法总则你了解多少？来测一测吧",
